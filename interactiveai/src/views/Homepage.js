@@ -1,11 +1,18 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router-dom";
 
 function Homepage() {
 
     const [disable, setDisable] = useState(true)
+    const history = useHistory();
 
     function handleChange(e) {
         setDisable(e.target.value === "")
+    }
+
+    const routeChange = () =>{ 
+        let path = '/questions'; 
+        history.push(path);
     }
 
     return (
@@ -17,7 +24,7 @@ function Homepage() {
 
                 <form
                     action="" //Need to put action here
-                    method="post"
+                    // method="post"
                     id="revue-form"
                     name="revue-form"
                     style={{
@@ -42,6 +49,7 @@ function Homepage() {
                             id="member_submit"
                             disabled={disable}
                             className="bg-primary bg-black bg-opacity-30 md:rounded outline-none mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12 font-bold uppercase"
+                            onClick={routeChange}
                         >Let's start!</button>
                     </div>
                 </form>
