@@ -1,4 +1,13 @@
+import React, {useState} from "react";
+
 function Homepage() {
+
+    const [disable, setDisable] = useState(true)
+
+    function handleChange(e) {
+        setDisable(e.target.value === "")
+    }
+
     return (
         <div className="min-h-screen text-black" style={{ display: 'flex', alignItems: 'center' }}>
             <main className="container mx-auto px-6 pt-16 flex-1 text-center">
@@ -24,14 +33,16 @@ function Homepage() {
                             name="member[email]"
                             id="member_email"
                             className="text-2xl placeholder:text-gray-400 placeholder:italic py-4 px-6 md:px-10 lg:py-6 lg:px-12 bg-white bg-opacity-50 focus:bg-opacity-75 hover:bg-opacity-75 duration-150 md:rounded-full outline-none mb-4"
+                            onChange={handleChange}
                         />
-                        <input
+                        <button
                             type="submit"
                             value="Let's start!"
                             name="member[submit]"
                             id="member_submit"
+                            disabled={disable}
                             className="bg-primary bg-black bg-opacity-30 md:rounded outline-none mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12 font-bold uppercase"
-                        />
+                        >Let's start!</button>
                     </div>
                 </form>
             </main>
