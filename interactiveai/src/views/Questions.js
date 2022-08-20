@@ -1,16 +1,17 @@
 import React from 'react'
+import Question from '../components/Question'
 
 const Questions = () => {
   return (
     <React.Fragment>
       <section>
         <div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-cols-2'>
-          <div className=' w-full h-full centered md:h-screen'>
-            <p>Question</p>
+          <div className=' w-full h-full bg-white centered md:h-screen'>
+            <Question />
           </div>
 
           {/* page 2 */}
-          <div className='w-full h-full bg-white centered md:h-screen'>
+          <div className='w-full h-full centered md:h-screen'>
             <p>Options</p>
           </div>
         </div>
