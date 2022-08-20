@@ -1,4 +1,4 @@
-function QuizOptions() {
+function QuizOptions(props) {
     return (
         <div className="min-h-screen text-black" style={{ display: 'flex', alignItems: 'center' }}>
             <main className="container mx-auto px-6 pt-16 flex-1 text-center">
