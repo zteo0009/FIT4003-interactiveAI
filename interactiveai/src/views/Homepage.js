@@ -48,7 +48,7 @@ function Homepage() {
                             name="member[submit]"
                             id="member_submit"
                             disabled={disable}
-                            className="bg-primary bg-black bg-opacity-30 md:rounded outline-none mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12 font-bold uppercase"
+                            className="bg-primary bg-black enabled:hover:bg-opacity-50 bg-opacity-30 md:rounded outline-none mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12 font-bold uppercase"
                             onClick={routeChange}
                         >Let's start!</button>
                     </div>
