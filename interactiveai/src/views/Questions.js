@@ -1,5 +1,6 @@
 import React from 'react'
 import Question from '../components/Question'
+import QuizOptions from '../components/QuizOptions'
 
 const Questions = () => {
   return (
@@ -12,7 +13,7 @@ const Questions = () => {
 
           {/* page 2 */}
           <div className='w-full h-full centered md:h-screen'>
-            <p>Options</p>
+            <QuizOptions />
           </div>
         </div>
       </section>
