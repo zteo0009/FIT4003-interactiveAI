@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Question from '../components/Question'
 import QuizOptions from '../components/QuizOptions'
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 const Questions = () => {
 
@@ -85,7 +86,7 @@ const Questions = () => {
 	return (
 		<React.Fragment>
 			<section>
-				<div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-cols-2'>
+				<motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-cols-2' initial={{width : 0}} animate={{width : "100%"}} exit={{x : window.innerWidth, transition: {duration: 0.1}}}>
 					{/* Left part */}
 					<div className=' w-full h-full bg-white centered md:h-screen'>
 						<Question question={questions[currentQuestion]} />
@@ -95,7 +96,7 @@ const Questions = () => {
 					<div className='w-full h-full centered md:h-screen'>
 						<QuizOptions options={questions[currentQuestion]} onSelectOption={() => { handleAnswerSelect() }} />
 					</div>
-				</div>
+				</motion.div>
 			</section>
 		</React.Fragment>
 	)

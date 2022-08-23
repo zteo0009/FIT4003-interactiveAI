@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion';
 
 function Homepage() {
 
@@ -16,7 +17,7 @@ function Homepage() {
     }
 
     return (
-        <div className="min-h-screen text-black" style={{ display: 'flex', alignItems: 'center' }}>
+        <motion.div className="min-h-screen text-black" style={{ display: 'flex', alignItems: 'center' }} initial={{width : 0}} animate={{width : "100%"}} exit={{x : window.innerWidth, transition: {duration: 0.1}}}>
             <main className="container mx-auto px-6 pt-16 flex-1 text-center">
                 <center><img src={require('../scale.png')} alt="" /></center>
                 <h2 className="text-2xl md:text-4xl lg:text-3xl uppercase">Welcome to our</h2>
@@ -54,7 +55,7 @@ function Homepage() {
                     </div>
                 </form>
             </main>
-        </div>
+        </motion.div>
     );
 }
 

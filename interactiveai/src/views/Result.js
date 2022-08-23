@@ -1,10 +1,11 @@
 import React from 'react'
+import { motion } from 'framer-motion';
 
 const Result = () => {
   return (
     <React.Fragment>
       <section>
-        <div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2'>
+        <motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2' initial={{width : 0}} animate={{width : "100%"}} exit={{x : window.innerWidth, transition: {duration: 0.1}}}>
           <div className=' w-full h-full centered md:w-screen'>
             <div className="min-h-screen text-black" style={{ display: 'block', alignItems: 'center' }}>
               <main className="container mx-auto px-6 pt-16 flex-1 text-center">
@@ -21,7 +22,7 @@ const Result = () => {
               </main>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </React.Fragment>
   )
