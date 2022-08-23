@@ -1,13 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Question from '../components/Question'
 import QuizOptions from '../components/QuizOptions'
 import { useNavigate } from "react-router-dom";
 
 const Questions = () => {
 
-  const questions = [
+	const questions = [
 		{
-      questionno: 1,
+			questionno: 1,
 			scenario: 'You ate a piece of bread.',
 			answerOptions: [
 				{ answerText: 'Be full', score: 0 },
@@ -17,7 +17,7 @@ const Questions = () => {
 			],
 		},
 		{
-      questionno: 2,
+			questionno: 2,
 			scenario: 'Who is CEO of Tesla?',
 			answerOptions: [
 				{ answerText: 'Jeff Bezos', score: 0 },
@@ -26,8 +26,8 @@ const Questions = () => {
 				{ answerText: 'Tony Stark', score: 3 },
 			],
 		},
-    {
-      questionno: 3,
+		{
+			questionno: 3,
 			scenario: 'What is the capital of France?',
 			answerOptions: [
 				{ answerText: 'New York', score: 0 },
@@ -47,7 +47,7 @@ const Questions = () => {
 			],
 		},
 		{
-      questionno: 5,
+			questionno: 5,
 			scenario: 'The iPhone was created by which company?',
 			answerOptions: [
 				{ answerText: 'Apple', score: 0 },
@@ -68,36 +68,37 @@ const Questions = () => {
 		},
 	];
 
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const navigate = useNavigate();
+	const [currentQuestion, setCurrentQuestion] = useState(0);
+	const navigate = useNavigate();
 
-  const handleAnswerSelect = () => {
-    const nextQuestion = currentQuestion + 1;
+	const handleAnswerSelect = () => {
+		const nextQuestion = currentQuestion + 1;
 
-    if (nextQuestion < questions.length) {
+		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
-			let path = '/result'; 
+			let path = '/result';
 			navigate(path)
 		}
-  }
+	}
 
-  return (
-    <React.Fragment>
-      <section>
-        <div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-cols-2'>
-          <div className=' w-full h-full bg-white centered md:h-screen'>
-            <Question question={questions[currentQuestion]}/>
-          </div>
+	return (
+		<React.Fragment>
+			<section>
+				<div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-cols-2'>
+					{/* Left part */}
+					<div className=' w-full h-full bg-white centered md:h-screen'>
+						<Question question={questions[currentQuestion]} />
+					</div>
 
-          {/* page 2 */}
-          <div className='w-full h-full centered md:h-screen'>
-            <QuizOptions options={questions[currentQuestion]} onSelectOption={()=>{handleAnswerSelect()}}/>
-          </div>
-        </div>
-      </section>
-    </React.Fragment>
-  )
+					{/* Right part */}
+					<div className='w-full h-full centered md:h-screen'>
+						<QuizOptions options={questions[currentQuestion]} onSelectOption={() => { handleAnswerSelect() }} />
+					</div>
+				</div>
+			</section>
+		</React.Fragment>
+	)
 }
 
 export default Questions
