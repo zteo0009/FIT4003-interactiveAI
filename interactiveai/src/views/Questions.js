@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Question from '../components/Question'
 import QuizOptions from '../components/QuizOptions'
+import { useNavigate } from "react-router-dom";
 
 const Questions = () => {
 
@@ -12,7 +13,7 @@ const Questions = () => {
 				{ answerText: 'Be full', score: 0 },
 				{ answerText: 'Be happy', score: 1 },
 				{ answerText: 'Be sad', score: 2 },
-				{ answerText: 'Die', score: 3 },
+				{ answerText: 'Eat more and become fat', score: 3 },
 			],
 		},
 		{
@@ -29,45 +30,57 @@ const Questions = () => {
       questionno: 3,
 			scenario: 'What is the capital of France?',
 			answerOptions: [
-				{ answerText: 'New York', isCorrect: false },
-				{ answerText: 'London', isCorrect: false },
-				{ answerText: 'Paris', isCorrect: true },
-				{ answerText: 'Dublin', isCorrect: false },
+				{ answerText: 'New York', score: 0 },
+				{ answerText: 'London', score: 1 },
+				{ answerText: 'Paris', score: 2 },
+				{ answerText: 'Dublin', score: 3 },
 			],
 		},
 		{
 			questionno: 4,
-			scenario: 'Who is CEO of Tesla?',
+			scenario: 'Who is the most handsome man alive?',
 			answerOptions: [
-				{ answerText: 'Jeff Bezos', isCorrect: false },
-				{ answerText: 'Elon Musk', isCorrect: true },
-				{ answerText: 'Bill Gates', isCorrect: false },
-				{ answerText: 'Tony Stark', isCorrect: false },
+				{ answerText: 'daro', score: 0 },
+				{ answerText: 'daro', score: 1 },
+				{ answerText: 'daro', score: 2 },
+				{ answerText: 'daro', score: 3 },
 			],
 		},
 		{
       questionno: 5,
 			scenario: 'The iPhone was created by which company?',
 			answerOptions: [
-				{ answerText: 'Apple', isCorrect: true },
-				{ answerText: 'Intel', isCorrect: false },
-				{ answerText: 'Amazon', isCorrect: false },
-				{ answerText: 'Microsoft', isCorrect: false },
+				{ answerText: 'Apple', score: 0 },
+				{ answerText: 'Intel', score: 1 },
+				{ answerText: 'Amazon', score: 2 },
+				{ answerText: 'Microsoft', score: 3 },
 			],
 		},
 		{
 			questionno: 6,
 			scenario: 'How many Harry Potter books are there?',
 			answerOptions: [
-				{ answerText: '1', isCorrect: false },
-				{ answerText: '4', isCorrect: false },
-				{ answerText: '6', isCorrect: false },
-				{ answerText: '7', isCorrect: true },
+				{ answerText: '1', score: 0 },
+				{ answerText: '4', score: 1 },
+				{ answerText: '6', score: 2 },
+				{ answerText: '7', score: 3 },
 			],
 		},
 	];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const navigate = useNavigate();
+
+  const handleAnswerSelect = () => {
+    const nextQuestion = currentQuestion + 1;
+
+    if (nextQuestion < questions.length) {
+			setCurrentQuestion(nextQuestion);
+		} else {
+			let path = '/result'; 
+			navigate(path)
+		}
+  }
 
   return (
     <React.Fragment>
@@ -79,7 +92,7 @@ const Questions = () => {
 
           {/* page 2 */}
           <div className='w-full h-full centered md:h-screen'>
-            <QuizOptions options={questions[currentQuestion]} onSelectOption={()=>{setCurrentQuestion(currentQuestion + 1)}}/>
+            <QuizOptions options={questions[currentQuestion]} onSelectOption={()=>{handleAnswerSelect()}}/>
           </div>
         </div>
       </section>

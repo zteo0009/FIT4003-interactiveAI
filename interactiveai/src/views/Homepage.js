@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Homepage() {
 
     const [disable, setDisable] = useState(true)
-    const history = useHistory();
+    const navigate = useNavigate();
 
     function handleChange(e) {
         setDisable(e.target.value === "")
@@ -12,7 +12,7 @@ function Homepage() {
 
     const routeChange = () =>{ 
         let path = '/questions'; 
-        history.push(path);
+        navigate(path);
     }
 
     return (
