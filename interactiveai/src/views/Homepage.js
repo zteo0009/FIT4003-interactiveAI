@@ -39,11 +39,9 @@ function Homepage() {
                             className="button"
                             onClick={routeChange}>Let's start!</button>
                     </div>
-                    <div className="empty">
-
-                    </div>
-            <div className="robot-hand">
-                    <img src={require('../images/robot-arm.png')} alt="" />
+                    <div className="empty"></div>
+             <div className="robot-hand">
+                <img src={require('../images/robot-arm.png')} alt="" />
              </div>
             </div>      
 
