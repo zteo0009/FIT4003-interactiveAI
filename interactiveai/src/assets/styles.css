@@ -3,6 +3,15 @@
     background: linear-gradient(180deg, rgba(77,108,187,1) 0%, rgba(170,95,225,1) 49%, rgba(201,97,218,0.6566125290023201) 100%);
 }
 
+.questions-bg {
+    background: rgba(255, 255, 255, 0.42);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.2px);
+    -webkit-backdrop-filter: blur(10.2px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .button {
     width: 210px;
     height: 82px;
@@ -40,6 +49,11 @@ h1 {
     font-family: 'Oswald', sans-serif;
     color: white;
     font-size: 96px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 h3 {
