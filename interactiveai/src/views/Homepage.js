@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
+import '../assets/styles.css'
 
 function Homepage() {
 
@@ -17,45 +18,40 @@ function Homepage() {
     }
 
     return (
-        <motion.div className="min-h-screen text-black" style={{ display: 'flex', alignItems: 'center' }} initial={{width : 0}} animate={{width : "100%"}} exit={{x : window.innerWidth, transition: {duration: 0.1}}}>
-            <main className="container mx-auto px-6 pt-16 flex-1 text-center">
-                <center><img src={require('../scale.png')} alt="" /></center>
-                <h2 className="text-2xl md:text-4xl lg:text-3xl uppercase">Welcome to our</h2>
-                <h1 className="text-3xl md:text-6xl lg:text-6xl uppercase font-black mb-8">AI Ethics Quiz</h1>
-
-                <form
-                    action="" //Need to put action here
-                    // method="post"
-                    id="revue-form"
-                    name="revue-form"
-                    style={{
-                        display: 'flex', alignItems: 'center',
-                        justifyContent: 'center'
-                    }} size=''
-                >
-
-                    <div className="flex flex-col">
-                        <input
-                            placeholder="Your email address..."
-                            type="email"
-                            name="member[email]"
-                            id="member_email"
-                            className="text-2xl placeholder:text-gray-400 placeholder:italic py-4 px-6 md:px-10 lg:py-6 lg:px-12 bg-white bg-opacity-50 focus:bg-opacity-75 hover:bg-opacity-75 duration-150 md:rounded-full outline-none mb-4"
-                            onChange={handleChange}
-                        />
+    <>
+     <img className="fixed right-0" src={require('../images/top-right-sphere.png')} alt="" />
+     <img className="fixed bottom-0 right-0 w-500" src={require('../images/bottom-sphere.png')} alt="" />
+     <img className="fixed left-0" src={require('../images/top-blob.png')} alt="" />
+     <img className="fixed bottom-0 right-50" src={require('../images/bottom-blob.png')} alt="" />
+  
+       <motion.div className="min-h-screen text-black" style={{alignItems: 'center' }} initial={{width : 0}} animate={{width : "100%"}} exit={{x : window.innerWidth, transition: {duration: 0.2}}}>
+      
+            <div className="flex h-screen justify-center items-center space-x-10 ">
+                    <div className="max-w-xl">
+                        <h3>Welcome to our</h3>
+                        <h1>AI ETHICS QUIZ</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
                         <button
                             type="submit"
                             value="Let's start!"
                             name="member[submit]"
                             id="member_submit"
-                            disabled={disable}
-                            className="bg-primary bg-black enabled:hover:bg-opacity-50 bg-opacity-30 md:rounded outline-none mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12 font-bold uppercase"
-                            onClick={routeChange}
-                        >Let's start!</button>
+                            className="button"
+                            onClick={routeChange}>Let's start!</button>
                     </div>
-                </form>
-            </main>
+                    <div className="empty">
+
+                    </div>
+            <div className="robot-hand">
+                    <img src={require('../images/robot-arm.png')} alt="" />
+             </div>
+            </div>      
+
+
         </motion.div>
+        </>
+
+       
     );
 }
 

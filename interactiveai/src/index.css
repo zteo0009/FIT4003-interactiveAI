@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-  background-image: url('./back.png');
-  background-size: cover;
-  background-position: top center;
+  background: rgb(77,108,187);
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(77,108,187,1) 0%, rgba(170,95,225,1) 49%, rgba(201,97,218,0.6566125290023201) 100%);
 }

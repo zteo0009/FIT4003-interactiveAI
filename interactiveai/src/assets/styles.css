@@ -1,0 +1,56 @@
+.main {
+    background: rgb(77,108,187);
+    background: linear-gradient(180deg, rgba(77,108,187,1) 0%, rgba(170,95,225,1) 49%, rgba(201,97,218,0.6566125290023201) 100%);
+}
+
+.button {
+    width: 210px;
+    height: 82px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #A557CA;
+    background-color: rgba(250, 240, 255, 0.87);
+    border-radius: 30px;
+    margin-top: 30px;
+    transition-duration: 0.4s;
+    box-shadow: rgba(83, 0, 97, 0.29) 10px 8px 0px;
+}
+
+.button:hover {
+    background-position: 100% 0;
+    background-color: white;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.robot-hand{
+    position: absolute;
+    z-index: 100;
+    bottom: -5%;
+    max-width: 40rem;
+    right: 20%;
+}
+
+.empty{
+    width:700px;
+}
+
+h1 {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 96px;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 27px;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 20px;
+}
