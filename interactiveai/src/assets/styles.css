@@ -24,12 +24,20 @@
     transition: all .4s ease-in-out;
 }
 
+@keyframes robotAnimation {
+    from {left:0px}
+    to{left:395px;}
+  }
+
 .robot-hand{
     position: absolute;
     z-index: 100;
     bottom: -5%;
     max-width: 40rem;
     right: 20%;
+    animation: robotAnimation 0.2s;
+    animation-timing-function: ease-in-out;
+    
 }
 
 .empty{
