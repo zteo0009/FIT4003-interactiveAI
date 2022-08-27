@@ -42,6 +42,7 @@
     position: absolute;
     z-index: 100;
     bottom: -5%;
+    width: 25%;
     max-width: 40rem;
     right: 20%;
     animation: robotAnimation 0.2s;
