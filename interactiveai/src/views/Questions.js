@@ -31,7 +31,7 @@ const Questions = () => {
 
 			documents.forEach(async collectionDoc => {
 				const scenario = collectionDoc.data().Background;
-				let subCollectionDocs = await getDocs(collection(db, "Scenario", collectionDoc.id, "Questions"));
+				let subCollectionDocs = await getDocs(query(collection(db, "Scenario", collectionDoc.id, "Questions"), orderBy("Questionno")));
 				subCollectionDocs.forEach(subCollectionDoc => {
 					temp.push({
 						scenario: scenario,
