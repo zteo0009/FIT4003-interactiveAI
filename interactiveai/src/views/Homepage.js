@@ -5,12 +5,7 @@ import '../assets/styles.css'
 
 function Homepage() {
 
-    const [disable, setDisable] = useState(true)
     const navigate = useNavigate();
-
-    function handleChange(e) {
-        setDisable(e.target.value === "")
-    }
 
     const routeChange = () =>{ 
         let path = '/questions'; 
