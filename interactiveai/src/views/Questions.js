@@ -24,7 +24,11 @@ const Questions = () => {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			let path = '/result';
-			navigate(path)
+			navigate(path, {
+				state: {
+					score: scoreList
+				}
+			});
 		}
 	}
 
