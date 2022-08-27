@@ -36,7 +36,8 @@ const Questions = () => {
 					temp.push({
 						scenario: scenario,
 						question: subCollectionDoc.data().Question,
-						answerOptions: subCollectionDoc.data().AnswerOptions
+						answerOptions: subCollectionDoc.data().AnswerOptions,
+						questionno: subCollectionDoc.data().Questionno
 					})
 				});
 				setQuestions(temp);
@@ -71,8 +72,6 @@ const Questions = () => {
 		</React.Fragment >
 
 	)
-	// 	})
-	// )
 }
 
 export default Questions
