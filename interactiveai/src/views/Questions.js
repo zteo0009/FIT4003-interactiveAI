@@ -6,13 +6,18 @@ import { motion } from 'framer-motion';
 import { db } from '../index'
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
+let scoreList = [];
+
 const Questions = () => {
 
 	const [questions, setQuestions] = useState([]);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const navigate = useNavigate();
 
-	const handleAnswerSelect = () => {
+	const handleAnswerSelect = (score) => {
+
+		scoreList.push(score);
+
 		const nextQuestion = currentQuestion + 1;
 
 		if (nextQuestion < questions.length) {
@@ -64,7 +69,7 @@ const Questions = () => {
 					{/* Right part */}
 					{questions && questions.length > 0 &&
 						<div className='w-full h-full centered md:h-screen'>
-							<QuizOptions options={questions[currentQuestion]} onSelectOption={() => { handleAnswerSelect() }} />
+							<QuizOptions options={questions[currentQuestion]} onSelectOption={(score) => { handleAnswerSelect(score) }} />
 						</div>
 					}
 				</motion.div>
