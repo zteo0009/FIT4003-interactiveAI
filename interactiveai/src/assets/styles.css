@@ -1,6 +1,6 @@
 .main {
-    background: rgb(77,108,187);
-    background: linear-gradient(180deg, rgba(77,108,187,1) 0%, rgba(170,95,225,1) 49%, rgba(201,97,218,0.6566125290023201) 100%);
+    background: rgb(77, 108, 187);
+    background: linear-gradient(180deg, rgba(77, 108, 187, 1) 0%, rgba(170, 95, 225, 1) 49%, rgba(201, 97, 218, 0.6566125290023201) 100%);
 }
 
 .questions-bg {
@@ -34,11 +34,16 @@
 }
 
 @keyframes robotAnimation {
-    from {left:0px}
-    to{left:395px;}
-  }
+    from {
+        left: 0px
+    }
 
-.robot-hand{
+    to {
+        left: 395px;
+    }
+}
+
+.robot-hand {
     position: absolute;
     z-index: 100;
     bottom: -5%;
@@ -47,11 +52,22 @@
     right: 20%;
     animation: robotAnimation 0.2s;
     animation-timing-function: ease-in-out;
-    
 }
 
-.empty{
-    width:700px;
+.robot-hand-background {
+    position: absolute;
+    z-index: -1;
+    bottom: -5%;
+    width: 25%;
+    max-width: 40rem;
+    right: 20%;
+    opacity: 0.5;
+    animation: robotAnimation 0.2s;
+    animation-timing-function: ease-in-out;
+}
+
+.empty {
+    width: 700px;
 }
 
 h1 {
@@ -76,4 +92,35 @@ p {
     font-weight: 300;
     color: white;
     font-size: 20px;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 1;
+}
+
+.popup {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.popup button {
+    color: #444;
+    border-color: #444;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.popup p {
+    color: #444;
+    font-weight: bold;
 }

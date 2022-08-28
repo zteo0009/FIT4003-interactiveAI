@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import '../assets/styles.css'
+import Popup from '../components/Popup';
 
 function Homepage() {
 
     const navigate = useNavigate();
+    const [showPopUp, setShowPopUp] = useState(false);
 
     const routeChange = () => {
-        let path = '/questions';
-        navigate(path);
+        setShowPopUp(true);
+        // let path = '/questions';
+        // navigate(path);
     }
 
     return (
         <>
+            <Popup showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
             <img className="fixed right-0" src={require('../images/top-right-sphere.png')} alt="" />
             <img className="fixed bottom-0 right-0 w-500" src={require('../images/bottom-sphere.png')} alt="" />
             <img className="fixed left-0" src={require('../images/top-blob.png')} alt="" />
@@ -35,9 +39,17 @@ function Homepage() {
                             onClick={routeChange}>Let's start!</button>
                     </div>
                     <div className="empty"></div>
-                    <div className="robot-hand">
-                        <img src={require('../images/robot-arm.png')} alt="" />
-                    </div>
+
+                    {showPopUp
+                        ? <div className="robot-hand-background">
+                            <img src={require('../images/robot-arm.png')} alt="" />
+                        </div>
+                        : <div className="robot-hand">
+                            <img src={require('../images/robot-arm.png')} alt="" />
+                        </div>
+                    }
+
+
                 </div>
 
 
