@@ -28,11 +28,11 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
     return (
         <AnimatePresence exitBeforeEnter>
             {showPopUp && (
-                <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible">
+                <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup" variants={popup}>
                         <p>Sample text</p>
                         <Link to="/questions">
-                            <button>Proceed</button>
+                            <button onClick={() => setShowPopUp(false)}>Proceed</button>
                         </Link>
                     </motion.div>
                 </motion.div>
