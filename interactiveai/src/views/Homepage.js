@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import '../assets/styles.css'
 import Popup from '../components/Popup';
 
 function Homepage() {
 
-    const navigate = useNavigate();
     const [showPopUp, setShowPopUp] = useState(false);
 
     const routeChange = () => {
         setShowPopUp(true);
-        // let path = '/questions';
-        // navigate(path);
     }
 
     return (
