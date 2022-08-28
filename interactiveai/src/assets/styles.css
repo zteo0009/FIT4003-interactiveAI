@@ -66,6 +66,10 @@
     animation-timing-function: ease-in-out;
 }
 
+.monash-logo {
+    width: 200px;
+}
+
 .empty {
     width: 700px;
 }
@@ -129,4 +133,8 @@ p {
 .popup p {
     color: #444;
     font-weight: bold;
+}
+
+.popup-checkbox {
+    margin-bottom: -5px;
 }

@@ -30,21 +30,28 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
             {showPopUp && (
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup" variants={popup}>
-                        <div className="popupText">
+                        <div className="monash-logo">
+                            <img src={require('../images/monash-logo.png')} alt="" />
+                        </div>
+                        <div className="popup-text">
                             <p>Sample text</p>
                         </div>
 
-                        <div className="popupButtons">
-                            <label>
-                                <input
-                                    type="checkbox"
-                                />
-                                I understand and agree to all the terms stated above.
-                            </label>
-                            <br/>
-                            <Link to="/questions">
-                                <button onClick={() => setShowPopUp(false)}>Proceed</button>
-                            </Link>
+                        <div className="popup-buttons">
+                            <div className="popup-checkbox">
+                                <label>
+                                    <input
+                                        type="checkbox"
+                                    />
+                                    I understand and agree to all the terms stated above.
+                                </label>
+                            </div>
+                            <div>
+                                <Link to="/questions">
+                                    <button onClick={() => setShowPopUp(false)}>Proceed</button>
+                                </Link>
+                            </div>
+
                         </div>
 
                     </motion.div>
