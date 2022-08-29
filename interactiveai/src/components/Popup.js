@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import TermsAndCondition from './TermsAndCondition';
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -20,7 +21,7 @@ const popup = {
         opacity: 1,
         transition: { delay: 0.5 },
         zIndex: '9999'
-    }
+    },
 }
 
 const Popup = ({ showPopUp, setShowPopUp }) => {
@@ -34,9 +35,10 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                             <img src={require('../images/monash-logo.png')} alt="" />
                         </div>
                         <div className="popup-text">
-                            <p>Sample text</p>
+                            <p>Sample text
+                            </p>
+                            <TermsAndCondition></TermsAndCondition>
                         </div>
-
                         <div className="popup-buttons">
                             <div className="popup-checkbox">
                                 <label>
