@@ -61,16 +61,15 @@ const Questions = () => {
 		< React.Fragment >
 			<section>
 				<motion.div className='w-screen grid text-black text-4xl md:grid-cols-2' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
-					<img className="fixed mx-auto bottom-0 object-center" src={require('../images/ellipse-2.png')} alt="" />
-					<img className="fixed top-30 left-0" src={require('../images/ellipse-1.png')} alt="" />
+					<img className="fixed bottom-0 object-center w-2/3 h-5/6" src={require('../images/ellipse-2.png')} alt="" />
+					<img className="fixed top-30 left-0 " src={require('../images/ellipse-1.png')} alt="" />
 					{/* Left part */}
 					{questions && questions.length > 0 &&
 					<div className="questions-parent max-h-screen">
 						<div className='questions-bg'>
 							<Question question={questions[currentQuestion]} />
 						</div>
-					</div>
-						
+					</div>	
 					}
 
 					{/* Right part */}

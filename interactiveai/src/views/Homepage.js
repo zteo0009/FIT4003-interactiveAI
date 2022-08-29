@@ -31,7 +31,7 @@ function Homepage() {
                             value="Let's start!"
                             name="member[submit]"
                             id="member_submit"
-                            className="button"
+                            className="start-btn"
                             onClick={routeChange}>Let's start!</button>
                     </div>
                     <div className="empty"></div>

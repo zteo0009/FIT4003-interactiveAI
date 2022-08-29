@@ -1,3 +1,28 @@
+h1 {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 96px;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+h3 {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-size: 27px;
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: white;
+    font-size: 20px;
+}
+
+
 .main {
     background: rgb(77, 108, 187);
     background: linear-gradient(180deg, rgba(77, 108, 187, 1) 0%, rgba(170, 95, 225, 1) 49%, rgba(201, 97, 218, 0.6566125290023201) 100%);
@@ -21,7 +46,7 @@
     padding: 30px;
 }
 
-.button {
+.start-btn {
     width: 210px;
     height: 82px;
     font-family: 'Poppins', sans-serif;
@@ -34,7 +59,24 @@
     box-shadow: rgba(83, 0, 97, 0.29) 10px 8px 0px;
 }
 
-.button:hover {
+.start-btn:hover {
+    background-position: 100% 0;
+    background-color: white;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+
+.quiz-btn{
+    position: relative;
+    border-radius: 30px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.78);
+    font-family: 'Poppins', sans-serif;
+}
+
+.quiz-btn:hover {
     background-position: 100% 0;
     background-color: white;
     -o-transition: all .4s ease-in-out;
@@ -83,29 +125,9 @@
     width: 700px;
 }
 
-h1 {
-    font-family: 'Oswald', sans-serif;
-    color: white;
-    font-size: 96px;
-}
 
-h2 {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-}
 
-h3 {
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    font-size: 27px;
-}
 
-p {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 300;
-    color: white;
-    font-size: 20px;
-}
 
 .backdrop {
     position: fixed;
