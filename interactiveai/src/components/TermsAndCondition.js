@@ -60,6 +60,11 @@ function TermsAndCondition(props) {
                     </p>
                 </div>
             </div>
+            <div>
+                <p>
+                    
+                </p>
+            </div>
         </div>
     )
 }

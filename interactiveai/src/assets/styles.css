@@ -150,6 +150,7 @@ p {
 
 .popup-text {
     Overflow-y:scroll;
+    height: 400px;
 }
 
 .column{
