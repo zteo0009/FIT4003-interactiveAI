@@ -172,13 +172,12 @@ p {
 
 .popup-text {
     height:400px;
-    margin-top: 0px;
 }
 
-html, body, iframe {
-    width: 100%;
+iframe {
+    width: 75%;
     height: 100%;
-    padding: 0;
-    margin: 0;
+    display: block;
+    margin: auto;
     text-align: center;
 }
