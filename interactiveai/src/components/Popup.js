@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useEffect, useState} from 'react';
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -25,6 +26,15 @@ const popup = {
 
 const Popup = ({ showPopUp, setShowPopUp }) => {
 
+    const canBeSubmitted = (input) => {
+        
+        if (input){
+            document.getElementById("proceedBtn").removeAttribute("disabled")
+        } else {
+            document.getElementById("proceedBtn").setAttribute("disabled", true)
+        }
+    }
+
     return (
         <AnimatePresence exitBeforeEnter>
             {showPopUp && (
@@ -41,13 +51,14 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                                 <label>
                                     <input
                                         type="checkbox"
+                                        onChange={(e) => canBeSubmitted(e.target.checked)}
                                     />
                                     I understand and agree to all the terms stated above.
                                 </label>
                             </div>
                             <div>
                                 <Link to="/questions">
-                                    <button onClick={() => setShowPopUp(false)}>Proceed</button>
+                                    <button disabled id="proceedBtn" onClick={() => setShowPopUp(false)}>Proceed</button>
                                 </Link>
                             </div>
 
@@ -60,4 +71,6 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
 
     )
 }
+
+
 export default Popup
