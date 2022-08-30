@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import TermsAndCondition from './TermsAndCondition';
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -35,9 +34,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                             <img src={require('../images/monash-logo.png')} alt="" />
                         </div>
                         <div className="popup-text">
-                            <p>Sample text
-                            </p>
-                            <TermsAndCondition></TermsAndCondition>
+                            <iframe className="tnc" src="https://docs.google.com/document/d/e/2PACX-1vQVCYMZ4c89khJZLY26qNGs0CnNdtRta8BIui1Vy_xG_JjFcd_1VJat0U1EQVdMaKmi-S1xDyrFSsNX/pub?embedded=true"></iframe>
                         </div>
                         <div className="popup-buttons">
                             <div className="popup-checkbox">
