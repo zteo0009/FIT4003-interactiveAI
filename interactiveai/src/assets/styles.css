@@ -35,10 +35,27 @@ p {
     backdrop-filter: blur(10.2px);
     -webkit-backdrop-filter: blur(10.2px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
     display: flex;
     justify-content: center;
     align-items: center; 
+}
+
+
+.illustration{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden!important;
+    height: 30vh;
+    }
+    
+.illustration img{
+    flex-shrink: 0;
+    min-width: 80%;
+    min-height: 100%;
+    width: 15vw;
 }
 
 .questions-parent{
