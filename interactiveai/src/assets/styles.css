@@ -143,9 +143,6 @@ p {
 }
 
 
-
-
-
 .backdrop {
     position: fixed;
     top: 0;
@@ -165,17 +162,59 @@ p {
     text-align: center;
 }
 
-.popup button {
-    width: 210px;
-    height: 82px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    color: #A557CA;
-    background-color: rgba(250, 240, 255, 0.87);
-    border-radius: 30px;
-    margin-top: 30px;
-    transition-duration: 0.4s;
-    box-shadow: rgba(83, 0, 97, 0.29) 10px 8px 0px;
+
+
+/* CSS */
+.popup button{
+  align-items: center;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 20px;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.popup button:hover:enabled,
+.popup button:focus:enabled {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.popup button:hover:enabled {
+  transform: translateY(-1px);
+}
+
+.popup button:active:enabled {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+.popup button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
 
 .popup p {
@@ -183,8 +222,9 @@ p {
     font-weight: bold;
 }
 
-.popup-checkbox {
-    margin-bottom: -5px;
+
+.popup input {
+    margin-top: 20px;
 }
 
 .popup-text {
@@ -197,17 +237,4 @@ iframe {
     display: block;
     margin: auto;
     text-align: center;
-}
-
-button:disabled {
-    width: 210px;
-    height: 82px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 20px;
-    color: white;
-    background-color: rgba(128, 128, 128, 0.87);
-    border-radius: 30px;
-    margin-top: 30px;
-    transition-duration: 0.4s;
-    box-shadow: rgba(83, 0, 97, 0.29) 10px 8px 0px;
 }
