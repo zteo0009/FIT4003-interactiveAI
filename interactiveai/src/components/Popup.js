@@ -22,12 +22,12 @@ const popup = {
 
 const Popup = ({ showPopUp, setShowPopUp }) => {
 
+    const [btnDisabled, setBtnDisable] = useState(true);
     const canBeSubmitted = (input) => {
-        
         if (input){
-            document.getElementById("proceedBtn").removeAttribute("disabled")
+            setBtnDisable(false);
         } else {
-            document.getElementById("proceedBtn").setAttribute("disabled", true)
+            setBtnDisable(true);
         }
     }
 
@@ -52,7 +52,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                             </div>
                             <div>
                                 <Link to="/questions">
-                                    <button disabled id="proceedBtn" onClick={() => setShowPopUp(false)}>Proceed</button>
+                                    <button id="proceedBtn" disabled={btnDisabled} onClick={() => setShowPopUp(false)}>Proceed</button>
                                 </Link>
                             </div>
 
