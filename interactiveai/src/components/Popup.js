@@ -10,17 +10,13 @@ const backdrop = {
 
 const popup = {
     hidden: {
-        position: "relative",
-        zIndex: '9999',
         y: "-100vh",
         opacity: 0
     },
     visible: {
-        position: "relative",
-        y: "20%",
+        y: "5%",
         opacity: 1,
         transition: { delay: 0.5 },
-        zIndex: '9999'
     },
 }
 
@@ -40,9 +36,6 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
             {showPopUp && (
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup" variants={popup}>
-                        <div className="monash-logo">
-                            <img src={require('../images/monash-logo.png')} alt="" />
-                        </div>
                         <div className="popup-text">
                             <iframe className="tnc" src="https://docs.google.com/document/d/e/2PACX-1vQVCYMZ4c89khJZLY26qNGs0CnNdtRta8BIui1Vy_xG_JjFcd_1VJat0U1EQVdMaKmi-S1xDyrFSsNX/pub?embedded=true"></iframe>
                         </div>
@@ -50,6 +43,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                             <div className="popup-checkbox">
                                 <label>
                                     <input
+                                        className="mr-2"
                                         type="checkbox"
                                         onChange={(e) => canBeSubmitted(e.target.checked)}
                                     />
