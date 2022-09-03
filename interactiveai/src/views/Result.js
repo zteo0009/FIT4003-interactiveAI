@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion';
 import { useLocation } from 'react-router-dom';
 import Slider from "react-slick";
+import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -22,17 +23,20 @@ const Result = (props) => {
         <motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
           <div className=' w-full h-full centered md:w-screen'>
             <div className="min-h-screen text-black" style={{ display: 'block', alignItems: 'center' }}>
-              <main className="container mx-auto px-6 pt-16 flex-1 text-center">
-                <h2 className="text-xl md:text-xl lg:text-xl uppercase font-bold mb-5">Here are your results...</h2>
+              <div className="container mx-auto px-6 pt-5 flex-1 text-center">
+                <h2 className="text-xl md:text-xl lg:text-xl uppercase font-bold mb-5">Result summary</h2>
                 <Slider {...settings}>
                   <div>
-                    <h3>1</h3>
-                    <h3>1.1</h3>
-                    <h3>1</h3>
-                    <h3>1</h3>
+                    <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 1</button>
+                    <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 2</button>
+                    <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 3</button>
+                    <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 4</button>
                   </div>
                   <div>
-                    <h3>2</h3>
+                  <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 5</button>
+                    <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 6</button>
+                    <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 7</button>
+                    <button className="quiz-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12">Question 8</button>
                   </div>
                   <div>
                     <h3>3</h3>
@@ -47,7 +51,8 @@ const Result = (props) => {
                     <h3>6</h3>
                   </div>
                 </Slider>
-              </main>
+                
+              </div>
             </div>
           </div>
 
