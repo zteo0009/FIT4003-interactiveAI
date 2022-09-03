@@ -8,7 +8,6 @@ function Question(props) {
                     <img src={require('../images/sample-illustration.png')} alt="" />
                 </div>
                 <p className="text-base text-black md:text-lg lg:text-base text-justify mb-6 ">{props.question.scenario}</p>
-                <h3 className="text-lg text-black md:text-lg lg:text-lg">{props.question.question}</h3>
             </main>
         </div>
     )
