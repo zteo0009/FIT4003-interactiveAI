@@ -20,7 +20,7 @@ const popup = {
     },
 }
 
-const ResultPopup = ({ showPopUp, setShowPopUp }) => {
+const ResultPopup = ({ showPopUp, setShowPopUp, content }) => {
 
     return (
         <AnimatePresence exitBeforeEnter>
@@ -28,7 +28,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp }) => {
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup" variants={popup}>
                         <div className="popup-text">
-                            <p>Question 1</p>
+                            <p>Question {content}</p>
                             <p>You chose a but the right answer is d so get rekt lol</p>
                             <p>Try harder next time</p>
                         </div>
