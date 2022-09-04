@@ -166,6 +166,38 @@ p {
     z-index: 9999;
 }
 
+.result-top {
+    height: 100%;
+}
+
+.slider-content {
+    position: relative;
+    height: 75%;
+}
+
+.result-btn{
+    height: 40%;
+    position: relative;
+    border-radius: 30px;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.78);
+    font-family: 'Poppins', sans-serif;
+}
+
+.slick-list
+{
+    height: 100% !important;
+}
+
+.slick-track
+{
+    height: 100%;
+}
+
+.slick-current > div{
+   height: 100%;
+}
+
 
 
 /* CSS */
