@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { render } from '@testing-library/react';
 
 
 const Result = (props) => {
@@ -17,6 +18,21 @@ const Result = (props) => {
     slidesToScroll: 1,
     adaptiveHeight: true
   };
+
+  const renderFeedback = () => {
+    console.log(state.score);
+    const totalScore = state.score.reduce((a, b) => a + b, 0)
+
+    if (totalScore <= 4) {
+      return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You suck</h2>
+    } 
+    else if (totalScore <= 8) {
+      return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You did ok</h2>
+    }
+    else {
+      return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You're literally hacking</h2>
+    }
+  }
 
   return (
     <React.Fragment>
@@ -67,7 +83,7 @@ const Result = (props) => {
           <div className='w-full h-full bg-white centered md:w-screen'>
             <div className="min-h-screen text-black" style={{ display: 'block', alignItems: 'center' }}>
               <main className="container mx-auto px-6 pt-16 flex-1 text-center">
-                <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">Total score: {state.score.reduce((a, b) => a + b, 0)} / {4 * state.score.length}</h2>
+                {renderFeedback()}
               </main>
             </div>
           </div>
