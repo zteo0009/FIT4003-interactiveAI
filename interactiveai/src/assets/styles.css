@@ -57,6 +57,7 @@ p {
     display: flex;
     justify-content: center;
     align-items: center; 
+    overflow:scroll;
 }
 
 .options-questions-card {
@@ -84,13 +85,40 @@ p {
     border-radius: 10px;
     padding: 1vw;
     z-index: 100;
-    background: rgba(255, 255, 255, 0.78);
+    color: white;
     font-family: 'Poppins', sans-serif;
-    font-size: 2vh;
+    font-size: 20px;
     min-width:100%;
     min-height: 100%;
     height: 20vh;
     width: 25vw;
+    opacity: 0.6;
+    overflow:scroll;
+}
+
+.options button:hover:enabled
+ {
+    opacity: 1;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.options div:nth-child(1) button{
+    background: rgba(255, 95, 153);
+
+}
+
+.options div:nth-child(2) button{
+    background: rgba(255, 173, 0);
+}
+
+.options div:nth-child(3) button{
+    background: rgba(59, 76, 226);
+}
+
+.options div:nth-child(4) button{
+    background: rgba(23, 208, 160);
 }
 
 .illustration{
@@ -132,18 +160,6 @@ p {
 }
 
 
-.quiz-btn{
-    /* position: relative; */
-
-}
-
-.quiz-btn:hover {
-    background-position: 100% 0;
-    background-color: white;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-}
 
 @keyframes robotAnimation {
     from {

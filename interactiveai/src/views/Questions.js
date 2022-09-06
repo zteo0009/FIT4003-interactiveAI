@@ -77,15 +77,12 @@ const Questions = () => {
 					<div className="col-span-3 options-parent max-h-screen">
 						<div className="grid grid-rows-5 gap-10 min-w-full">
 							<div className="row-span-2 primary-questions-card glass-bg">
-								<h3 className="text-lg text-black md:text-lg lg:text-lg mb-8">{questions[currentQuestion].question}</h3>
+								<h3 className="text-black md:text-xl mb-2">{questions[currentQuestion].question}</h3>
 							</div>
 							<div className="row-span-3 options-questions-card glass-bg">
-							<QuizOptions options={questions[currentQuestion]} onSelectOption={(score) => { handleAnswerSelect(score) }} />
-
+								<QuizOptions options={questions[currentQuestion]} onSelectOption={(score) => { handleAnswerSelect(score) }} />
 							</div>
 						</div>
-							{/* <div className='w-full h-full centered md:h-screen'>
-						</div> */}
 					</div>	
 					}
 
