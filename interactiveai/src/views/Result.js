@@ -65,7 +65,7 @@ const Result = (props) => {
   return (
     <React.Fragment>
       <section>
-        <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question}/>
+        <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question} score={score}/>
         <motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
           <div className=' w-full h-full centered md:w-screen flex flex-col text-center px-6 pt-5'>
             <div className="flex-1 text-black" style={{ display: 'block', alignItems: 'center' }}>

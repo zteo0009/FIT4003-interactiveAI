@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -18,7 +19,22 @@ const popup = {
     },
 }
 
-const ResultPopup = ({ showPopUp, setShowPopUp, content }) => {
+const ResultPopup = ({ showPopUp, setShowPopUp, content, score }) => {
+
+    const [image, setImg] = useState(() => {
+        if (score <= 4) {
+            //change image
+            return 'sample-illustration.png';
+        }
+        else if (score <= 8) {
+            //change image
+            return 'robot-arm.png';
+        }
+        else {
+            //change image
+            return 'robot-arm.png';
+        }
+    })
 
     return (
         <AnimatePresence exitBeforeEnter>
@@ -31,7 +47,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content }) => {
                             <p>Try harder next time</p>
                         </div>
                         <div className="popup-image-result">
-                            <img src={require('../images/sample-illustration.png')} alt="" />
+                            <img src={require(`../images/${image}`)} alt="" />
                         </div>
                         <div className="popup-buttons">
                             <button id="proceedBtn" onClick={() => setShowPopUp(false)}>Close</button>
