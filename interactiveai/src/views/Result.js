@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import Slider from "react-slick";
 import ResultPopup from '../components/ResultPopup';
@@ -14,7 +14,7 @@ const Result = (props) => {
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
   const { state } = useLocation();
-
+  const navigate = useNavigate();
   const settings = {
     dots: true,
     infinite: true,
@@ -56,6 +56,11 @@ const Result = (props) => {
     )
   }
 
+  const tryAgainButton = () => {
+    let path = '/';
+    navigate(path);
+  }
+
   const quesNos =  [1,4,7,10,13];
   return (
     <React.Fragment>
@@ -80,7 +85,14 @@ const Result = (props) => {
           <div className='w-full h-full bg-white centered md:w-screen'>
             <div className="min-h-screen text-black" style={{ display: 'block', alignItems: 'center' }}>
               <main className="container mx-auto px-6 pt-16 flex-1 text-center">
-                {renderFeedback()}
+                {/* {renderFeedback()} */}
+                <button
+                            type="submit"
+                            value="Let's start!"
+                            name="member[submit]"
+                            id="member_submit"
+                            className="start-btn"
+                            onClick={tryAgainButton}>Try Again!</button>
               </main>
             </div>
           </div>
