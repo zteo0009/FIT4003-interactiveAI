@@ -51,17 +51,16 @@ p {
 }
 
 .scenario-questions-card {
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left: 50px;
+    padding-right: 50px;
     width: 50vw;
     display: flex;
     justify-content: center;
     align-items: center; 
-    overflow:scroll;
 }
 
 .options-questions-card {
-    padding: 20px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center; 
@@ -80,7 +79,6 @@ p {
     align-items: center; 
     min-width: 100%;
     text-align: center;
-    overflow:scroll;
 }
 
 .options button{
@@ -95,7 +93,6 @@ p {
     height: 17vh;
     width: 25vw;
     opacity: 0.6;
-    overflow:scroll;
     font-size: 1.125rem; /* 18px */
     line-height: 1.75rem; /* 28px */
 }
