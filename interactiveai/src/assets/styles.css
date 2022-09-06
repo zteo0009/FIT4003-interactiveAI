@@ -22,46 +22,93 @@ p {
     font-size: 20px;
 }
 
+.question h2 {
+    font-size: 1.7vw;
+    margin-bottom: 1vw;
+}
+.question h3 {
+    font-size: 1.3vw;
+}
+
 
 .main {
     background: rgb(77, 108, 187);
     background: linear-gradient(180deg, rgba(77, 108, 187, 1) 0%, rgba(170, 95, 225, 1) 49%, rgba(201, 97, 218, 0.6566125290023201) 100%);
 }
 
-.questions-bg {
-    background: rgba(255, 255, 255, 0.42);
+.questions-parent{
+    display: flex;
+    padding: 30px;
+}
+
+.glass-bg {
+    background: rgba(255, 255, 255, 0.72);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10.2px);
-    -webkit-backdrop-filter: blur(10.2px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding-left: 50px;
-    padding-right: 50px;
+    backdrop-filter: blur(6.3px);
+    -webkit-backdrop-filter: blur(6.3px);
+    border: 1px solid rgba(255, 255, 255, 0.66);
+}
+
+.scenario-questions-card {
+    padding-left: 70px;
+    padding-right: 70px;
+    width: 50vw;
     display: flex;
     justify-content: center;
     align-items: center; 
 }
 
+.options-questions-card {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.options-parent{
+    display: flex;
+    padding: 80px 80px 80px 30px;
+}
+
+.primary-questions-card{
+    padding-left: 70px;
+    padding-right: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    min-width: 100%;
+}
+
+.options button{
+    border-radius: 10px;
+    padding: 1vw;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.78);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2vh;
+    min-width:100%;
+    min-height: 100%;
+    height: 20vh;
+    width: 25vw;
+}
 
 .illustration{
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden!important;
-    height: 30vh;
+    height: 40vh;
     }
     
 .illustration img{
     flex-shrink: 0;
     min-width: 80%;
     min-height: 100%;
-    width: 15vw;
+    width: 20vw;
 }
 
-.questions-parent{
-    display: flex;
-    padding: 30px;
-}
+
 
 .start-btn {
     width: 210px;
@@ -86,11 +133,8 @@ p {
 
 
 .quiz-btn{
-    position: relative;
-    border-radius: 30px;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.78);
-    font-family: 'Poppins', sans-serif;
+    /* position: relative; */
+
 }
 
 .quiz-btn:hover {
