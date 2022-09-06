@@ -43,7 +43,20 @@ const Result = (props) => {
     setShowPopUp(true);
   }
 
+  const returnExplanation = (questionNo) => {
+    const ques1 = String(questionNo)
+    const ques2 = String(questionNo + 1);
+    const ques3 = String(questionNo + 2);
+    return (
+      <div className="slider-content">
+      <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques1)}>Question {ques1}</button>
+      <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques2)}>Question {ques2}</button>
+      <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques3)}>Question {ques3}</button>
+    </div>
+    )
+  }
 
+  const quesNos =  [1,4,7,10,13];
   return (
     <React.Fragment>
       <section>
@@ -54,36 +67,9 @@ const Result = (props) => {
               <div className="result-top">
                 <h2 className="text-xl md:text-xl lg:text-xl uppercase font-bold mb-5">Result summary</h2>
                 <Slider {...settings} className="slider-content">
-                  <div className="slider-content">
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("1")}>Question 1</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("2")}>Question 2</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("3")}>Question 3</button>
-                  </div>
-                  <div className="slider-content">
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("4")}>Question 4</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("5")}>Question 5</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("6")}>Question 6</button>
-                  </div>
-                  <div className="slider-content">
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("7")}>Question 7</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("8")}>Question 8</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("9")}>Question 9</button>
-                  </div>
-                  <div className="slider-content">
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("10")}>Question 10</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("11")}>Question 11</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("12")}>Question 12</button>
-                  </div>
-                  <div className="slider-content">
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("13")}>Question 13</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("14")}>Question 14</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("15")}>Question 15</button>
-                  </div>
-                  <div className="slider-content">
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("16")}>Question 16</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("17")}>Question 17</button>
-                    <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation("18")}>Question 18</button>
-                  </div>
+                  {quesNos.map(item => {
+                    return returnExplanation(item);
+                  })}
                 </Slider>
 
               </div>
