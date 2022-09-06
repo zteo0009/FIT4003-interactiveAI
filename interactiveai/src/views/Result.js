@@ -28,13 +28,25 @@ const Result = (props) => {
   const renderFeedback = () => {
 
     if (score <= 4) {
-      return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You suck</h2>
+      return <>
+      <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You suck</h2>
+      <p className="text-xl md:text-xl lg:text-xl mb-10">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </>
     }
     else if (score <= 8) {
-      return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You did ok</h2>
+      return <> 
+      <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You did ok</h2>
+      <p className="text-xl md:text-xl lg:text-xl mb-10">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </>
     }
     else {
-      return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You're literally hacking</h2>
+      return <>
+      <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You're literally hacking</h2>
+      <p className="text-xl md:text-xl lg:text-xl mb-10">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </>
     }
   }
 
@@ -49,9 +61,9 @@ const Result = (props) => {
     const ques3 = String(questionNo + 2);
     return (
       <div className="slider-content">
-      <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques1)}>Question {ques1}</button>
-      <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques2)}>Question {ques2}</button>
-      <button className="result-btn w-5/6 mb-1 text-xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques3)}>Question {ques3}</button>
+      <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques1)}>Question {ques1}</button>
+      <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques2)}>Question {ques2}</button>
+      <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques3)}>Question {ques3}</button>
     </div>
     )
   }
@@ -70,7 +82,7 @@ const Result = (props) => {
           <div className=' w-full h-full centered md:w-screen flex flex-col text-center px-6 pt-5'>
             <div className="flex-1 text-black" style={{ display: 'block', alignItems: 'center' }}>
               <div className="result-top">
-                <h2 className="text-xl md:text-xl lg:text-xl uppercase font-bold mb-5">Result summary</h2>
+                <p className="text-xl md:text-xl lg:text-xl uppercase mb-10">Result summary</p>
                 <Slider {...settings} className="slider-content">
                   {quesNos.map(item => {
                     return returnExplanation(item);
@@ -82,9 +94,9 @@ const Result = (props) => {
           </div>
 
           {/* page 2 */}
-          <div className='w-full h-full bg-white centered md:w-screen'>
+          <div className='w-full h-full glass-bg-2 centered md:w-screen'>
             <div className="min-h-screen text-black" style={{ display: 'block', alignItems: 'center' }}>
-              <main className="container mx-auto px-6 pt-16 flex-1 text-center">
+              <main className="feedback container mx-auto px-6 pt-16 flex-1 text-center">
                 {renderFeedback()}
                 <button
                             type="submit"
