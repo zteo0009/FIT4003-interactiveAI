@@ -14,6 +14,7 @@ const Result = (props) => {
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
   const { state } = useLocation();
+  const [score, setScore] = useState( () => state.score.reduce((a, b) => a + b, 0));
   const navigate = useNavigate();
   const settings = {
     dots: true,
@@ -25,12 +26,11 @@ const Result = (props) => {
   };
 
   const renderFeedback = () => {
-    const totalScore = state.score.reduce((a, b) => a + b, 0)
 
-    if (totalScore <= 4) {
+    if (score <= 4) {
       return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You suck</h2>
     }
-    else if (totalScore <= 8) {
+    else if (score <= 8) {
       return <h2 className="text-xl md:text-xl lg:text-xl uppercase mb-16">You did ok</h2>
     }
     else {
@@ -85,7 +85,7 @@ const Result = (props) => {
           <div className='w-full h-full bg-white centered md:w-screen'>
             <div className="min-h-screen text-black" style={{ display: 'block', alignItems: 'center' }}>
               <main className="container mx-auto px-6 pt-16 flex-1 text-center">
-                {/* {renderFeedback()} */}
+                {renderFeedback()}
                 <button
                             type="submit"
                             value="Let's start!"
