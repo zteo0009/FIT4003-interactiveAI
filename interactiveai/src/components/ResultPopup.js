@@ -25,10 +25,13 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content }) => {
             {showPopUp && (
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup" variants={popup}>
-                        <div className="popup-text">
+                        <div className="popup-text-result">
                             <p>Question {content}</p>
                             <p>You chose a but the right answer is d so get rekt lol</p>
                             <p>Try harder next time</p>
+                        </div>
+                        <div className="popup-image-result">
+                            <img src={require('../images/sample-illustration.png')} alt="" />
                         </div>
                         <div className="popup-buttons">
                             <button id="proceedBtn" onClick={() => setShowPopUp(false)}>Close</button>

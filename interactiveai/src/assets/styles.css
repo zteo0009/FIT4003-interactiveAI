@@ -166,6 +166,20 @@ p {
     z-index: 9999;
 }
 
+.popup {
+    position: absolute;
+    min-width: 75%;
+    height: 90%;
+    left: 12.5%;
+    right: 12.5%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 9999;
+}
+
 .result-top {
     height: 100%;
 }
@@ -275,4 +289,21 @@ iframe {
     display: block;
     margin: auto;
     text-align: center;
+}
+
+
+.popup-image-result{
+    /* position: center; */
+    max-width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 50%;
+}
+
+.popup-text-result {
+    width: 50%;
+    margin: 0 auto;
+    height: 10%;
 }
