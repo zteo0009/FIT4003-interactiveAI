@@ -83,7 +83,7 @@ const Questions = () => {
 								<p>Please select an answer below </p>
 							</div>
 
-							<div className="row-span-3 options-questions-card glass-bg">
+							<div className="row-span-3 options-questions-card glass-bg-2">
 								<QuizOptions options={questions[currentQuestion]} onSelectOption={(score) => { handleAnswerSelect(score) }} />
 							</div>
 						</div>
