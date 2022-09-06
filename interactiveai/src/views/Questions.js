@@ -75,10 +75,14 @@ const Questions = () => {
 					{/* Right part */}
 					{questions && questions.length > 0 &&
 					<div className="col-span-3 options-parent max-h-screen">
-						<div className="grid grid-rows-5 gap-10 min-w-full">
+						<div className="grid grid-rows-6 gap-10 min-w-full">
 							<div className="row-span-2 primary-questions-card glass-bg">
 								<h3 className="text-black md:text-xl mb-2">{questions[currentQuestion].question}</h3>
 							</div>
+							<div className="row-span-1 flex items-center justify-center text-white">
+								<p>Please select an answer below </p>
+							</div>
+
 							<div className="row-span-3 options-questions-card glass-bg">
 								<QuizOptions options={questions[currentQuestion]} onSelectOption={(score) => { handleAnswerSelect(score) }} />
 							</div>

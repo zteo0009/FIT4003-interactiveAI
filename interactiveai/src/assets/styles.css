@@ -69,16 +69,18 @@ p {
 
 .options-parent{
     display: flex;
-    padding: 80px 80px 80px 30px;
+    padding: 60px 60px 60px 30px;
 }
 
 .primary-questions-card{
-    padding-left: 70px;
-    padding-right: 70px;
+    padding-left:70px;
+    padding-right:70px;
     display: flex;
     justify-content: center;
     align-items: center; 
     min-width: 100%;
+    text-align: center;
+    overflow:scroll;
 }
 
 .options button{
@@ -90,10 +92,12 @@ p {
     font-size: 20px;
     min-width:100%;
     min-height: 100%;
-    height: 20vh;
+    height: 17vh;
     width: 25vw;
     opacity: 0.6;
     overflow:scroll;
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem; /* 28px */
 }
 
 .options button:hover:enabled
@@ -105,20 +109,20 @@ p {
 }
 
 .options div:nth-child(1) button{
-    background: rgba(255, 95, 153);
+    background: #E74781;
 
 }
 
 .options div:nth-child(2) button{
-    background: rgba(255, 173, 0);
+    background: #FEA800;
 }
 
 .options div:nth-child(3) button{
-    background: rgba(59, 76, 226);
+    background: #3B4CE2;
 }
 
 .options div:nth-child(4) button{
-    background: rgba(23, 208, 160);
+    background: #13AB84;
 }
 
 .illustration{
@@ -135,8 +139,6 @@ p {
     min-height: 100%;
     width: 20vw;
 }
-
-
 
 .start-btn {
     width: 210px;
