@@ -383,12 +383,12 @@ iframe {
 
 .popup-image-result{
     /* position: center; */
-    max-width: 30%;
+    max-width: 20%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    height: 50%;
+    height: 70%;
 }
 
 .popup-text-result {

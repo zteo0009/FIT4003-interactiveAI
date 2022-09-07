@@ -49,7 +49,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score }) => {
                         <div className="popup-image-result">
                             <img src={require(`../images/${image}`)} alt="" />
                         </div>
-                        <div className="popup-buttons">
+                        <div className="popup-buttons-result">
                             <button id="proceedBtn" onClick={() => setShowPopUp(false)}>Close</button>
                         </div>
                     </motion.div>
