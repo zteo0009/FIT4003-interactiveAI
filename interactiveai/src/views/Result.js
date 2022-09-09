@@ -1,16 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import Slider from "react-slick";
 import ResultPopup from '../components/ResultPopup';
+import { db } from '../index'
 import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 
 const Result = (props) => {
 
+  const [questionRationale, setQuestionRationale] = useState([]);
+  const [clickedQuestion, setClickedQuestion] = useState([]);
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
   const { state } = useLocation();
@@ -24,6 +26,30 @@ const Result = (props) => {
     slidesToScroll: 1,
     adaptiveHeight: true
   };
+
+  useEffect(() => {
+		const getQuestions = async () => {
+			const temp = [];
+			const questionsCollectionRef = collection(db, "Scenario")
+			const documents = await getDocs(query(questionsCollectionRef, orderBy("Scenariono")));
+
+			documents.forEach(async collectionDoc => {
+				const scenario = collectionDoc.data().Background;
+				let subCollectionDocs = await getDocs(query(collection(db, "Scenario", collectionDoc.id, "Questions"), orderBy("Questionno")));
+				subCollectionDocs.forEach(subCollectionDoc => {
+					temp.push({
+						scenario: scenario,
+						question: subCollectionDoc.data().Question,
+						answerOptions: subCollectionDoc.data().AnswerOptions,
+						questionno: subCollectionDoc.data().Questionno,
+            rationale: subCollectionDoc.data().rationale,
+					})
+				});
+				setQuestionRationale(temp);
+			});
+		}
+		getQuestions();
+	}, [])
 
   const renderFeedback = () => {
 
@@ -53,6 +79,13 @@ const Result = (props) => {
   const showExplanation = (questionno) => {
     setQuestionno(questionno);
     setShowPopUp(true);
+    for(let i = 0;  i< questionRationale.length; i++){
+      let indexRationale =  i+1;
+      if(questionno.match(String(indexRationale))){
+        setClickedQuestion(questionRationale[i]);
+      }
+    }
+    console.log(clickedQuestion);
   }
 
   const returnExplanation = (questionNo) => {
@@ -77,7 +110,7 @@ const Result = (props) => {
   return (
     <React.Fragment>
       <section>
-        <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question} score={score}/>
+        <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question} score={score} clickedQuestion={clickedQuestion}/>
         <motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
           <div className=' w-full h-full centered md:w-screen flex flex-col text-center px-6 pt-5'>
             <div className="flex-1 text-black" style={{ display: 'block', alignItems: 'center' }}>

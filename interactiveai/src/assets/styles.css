@@ -59,6 +59,16 @@ p {
     border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
+.glass-result-bg{
+    background: rgba(175, 172, 172, 0.12);
+    border-radius: 16px;
+    height: 100%;
+    padding: 120px 0px;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
 .scenario-questions-card {
     padding-left: 50px;
     padding-right: 50px;
@@ -234,7 +244,7 @@ p {
     z-index: 9999;
 }
 
-.popup {
+.popup-result {
     position: absolute;
     min-width: 75%;
     height: 90%;
@@ -246,6 +256,7 @@ p {
     border-radius: 10px;
     text-align: center;
     z-index: 9999;
+    overflow-y: scroll;
 }
 
 .result-top {
@@ -361,6 +372,11 @@ p {
     font-weight: bold;
 }
 
+.popup-result p {
+    color: #444;
+    font-weight: bold;
+}
+
 
 .popup input {
     margin-top: 20px;
@@ -395,4 +411,9 @@ iframe {
     width: 50%;
     margin: 0 auto;
     height: 10%;
+    color: black;
+}
+
+.popup-buttons-result{
+    padding-top: 50px;
 }
