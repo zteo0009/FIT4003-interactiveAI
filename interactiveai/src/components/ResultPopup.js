@@ -47,9 +47,19 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
             hide: "hide",
             show: "show"
         }
+        console.log(newState.state);
         setOpen(newState);
     }
-    // console.log(currentQues);
+    
+    const hideQuestion = () => {
+        const newState = {
+            state: false,
+            hide: "hide",
+            show: "show"
+        }
+        setOpen(newState);
+    }
+
     return (
         <AnimatePresence exitBeforeEnter>
             {showPopUp && (
@@ -102,7 +112,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                             <img src={require(`../images/${image}`)} alt="" />
                         </div> */}
                         <div className="popup-buttons-result">
-                            <button id="proceedBtn" onClick={() => setShowPopUp(false)}>Close</button>
+                            <button id="proceedBtn" onClick={() => {setShowPopUp(false); hideQuestion();}}>Close</button>
                         </div>
                     </motion.div>
                 </motion.div>
