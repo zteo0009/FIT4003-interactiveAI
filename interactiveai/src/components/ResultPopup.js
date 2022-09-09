@@ -21,6 +21,11 @@ const popup = {
 
 const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion }) => {
 
+    const [open, setOpen] = useState({
+        state: false,
+        hide: "hide",
+        show: "show"
+    });
     //incase we add conditional image
     const [image, setImg] = useState(() => {
         if (score <= 4) {
@@ -36,6 +41,14 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
             return 'robot-arm.png';
         }
     })
+    const toggle = () => {
+        const newState = {
+            state: !open.state,
+            hide: "hide",
+            show: "show"
+        }
+        setOpen(newState);
+    }
     // console.log(currentQues);
     return (
         <AnimatePresence exitBeforeEnter>
@@ -58,8 +71,9 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                                         </p>
                                     </div>
                                 </div>
+                                <button  onClick={toggle}>{!open.state? open.show: open.hide}</button>
                             </div>
-                            <div>
+                            {open.state && <div>
                                 <div className="grid grid-cols-2 gap-4 min-w-full">
                                     <div>
                                         <h3 className="text-black">
@@ -81,7 +95,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                                         <p>D. {clickedQuestion.answerOptions[3].answerText}</p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
 					
                         {/* <div className="popup-image-result">
