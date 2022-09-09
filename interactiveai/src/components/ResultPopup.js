@@ -45,21 +45,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                         <div className="popup-text-result">
                             <p>Question {content} Summary</p>
                         </div>
-                        <div className="grid grid-cols-2 gap-4">
-                            <div>
-                                <div className="grid grid-rows-1 gap-10 min-w-full">
-                                    <h3 className="text-black">
-                                        Scenario
-                                    </h3>
-                                    <p>{clickedQuestion.scenario}</p>
-                                    <h2> {clickedQuestion.question}</h2>
-                                    {/* <h3 className="text-black">
-                                        YOU CHOOSE:
-                                    </h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et </p> */}
-                                </div>
-                            </div>
+                        <div className="grid grid-rows-2 grid-flow-col gap-4">
                             <div>
                                 <div className="glass-result-bg">
                                     <div className="grid grid-rows-1 gap-10 min-w-full">
@@ -70,6 +56,29 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                                         <p>
                                             {clickedQuestion.rationale}
                                         </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="grid grid-cols-2 gap-4 min-w-full">
+                                    <div>
+                                        <h3 className="text-black">
+                                            Scenario
+                                        </h3>
+                                        <p>{clickedQuestion.scenario}</p>
+                                        <h2> {clickedQuestion.question}</h2>
+                                        {/* <h3 className="text-black">
+                                            YOU CHOOSE:
+                                        </h3>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                                            sed do eiusmod tempor incididunt ut labore et </p> */}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-black">Question Options</h3>
+                                        <p>A. {clickedQuestion.answerOptions[0].answerText}</p>
+                                        <p>B. {clickedQuestion.answerOptions[1].answerText}</p>
+                                        <p>C. {clickedQuestion.answerOptions[2].answerText}</p>
+                                        <p>D. {clickedQuestion.answerOptions[3].answerText}</p>
                                     </div>
                                 </div>
                             </div>
