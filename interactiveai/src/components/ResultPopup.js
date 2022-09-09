@@ -53,22 +53,24 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                                     </h3>
                                     <p>{clickedQuestion.scenario}</p>
                                     <h2> {clickedQuestion.question}</h2>
-                                    <h3 className="text-black">
+                                    {/* <h3 className="text-black">
                                         YOU CHOOSE:
                                     </h3>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                        sed do eiusmod tempor incididunt ut labore et </p>
+                                        sed do eiusmod tempor incididunt ut labore et </p> */}
                                 </div>
                             </div>
                             <div>
                                 <div className="glass-result-bg">
-                                    {/* <h3 className="text-black md:text-xl mb-2">{questions[currentQuestion].question}</h3> */}
-                                    <h3 className="text-black">
-                                    Feedback
-                                    </h3>
-                                    <p>
-                                        {clickedQuestion.rationale}
-                                    </p>
+                                    <div className="grid grid-rows-1 gap-10 min-w-full">
+                                        {/* <h3 className="text-black md:text-xl mb-2">{questions[currentQuestion].question}</h3> */}
+                                        <h3 className="text-black">
+                                        Feedback
+                                        </h3>
+                                        <p>
+                                            {clickedQuestion.rationale}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
