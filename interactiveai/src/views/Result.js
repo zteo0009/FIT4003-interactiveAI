@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const Result = (props) => {
-  
+
   const [clickedQuestion, setClickedQuestion] = useState([]);
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
@@ -27,14 +27,14 @@ const Result = (props) => {
 
   const renderFeedback = () => {
 
-    if (score <= 4) {
+    if (score <= 21) {
       return <>
         <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You suck</h2>
         <p className="text-xl md:text-xl lg:text-xl mb-10">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </>
     }
-    else if (score <= 8) {
+    else if (score <= 42) {
       return <>
         <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You did ok</h2>
         <p className="text-xl md:text-xl lg:text-xl mb-10">
@@ -63,14 +63,14 @@ const Result = (props) => {
   }
 
   const returnExplanation = (questionNo) => {
-    const ques1 = String(questionNo)
+    const ques1 = String(questionNo);
     const ques2 = String(questionNo + 1);
     const ques3 = String(questionNo + 2);
     return (
       <div className="slider-content">
         <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques1)}>Question {ques1}</button>
-        <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques2)}>Question {ques2}</button>
-        <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques3)}>Question {ques3}</button>
+        {questionNo + 1 <= 16 ? <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques2)}>Question {ques2}</button>: ""}
+        {questionNo + 2 <= 16 ? <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques3)}>Question {ques3}</button>: ""}
       </div>
     )
   }
@@ -80,7 +80,10 @@ const Result = (props) => {
     navigate(path);
   }
 
-  const quesNos = [1, 4, 7, 10, 13];
+  let quesNos = []
+  for (let i = 1; i <= questionRationale.length; i+= 3){
+    quesNos.push(i);
+  }
   return (
     <React.Fragment>
       <section>
