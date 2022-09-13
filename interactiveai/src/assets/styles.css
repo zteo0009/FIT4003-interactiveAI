@@ -62,10 +62,9 @@ p {
 .glass-result-bg{
     background: rgba(175, 172, 172, 0.12);
     border-radius: 16px;
-    height: 100%;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    padding: 5px;
 }
 
 .scenario-questions-card {
@@ -311,10 +310,10 @@ p {
    height: 100%;
 }
 
-.feedback h2, .feedback p{
+.feedback h2, .popup-result h2, .popup-result p, .feedback p{
     color:#030052;
 }
-.popup button{
+.popup button, .display-question button{
   align-items: center;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -323,14 +322,13 @@ p {
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
-  display: inline-flex;
+  display: inline-block;
   font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;
   line-height: 1.25;
-  margin: 20px;
-  min-height: 3rem;
+  margin: 5px;
   padding: calc(.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
   text-decoration: none;
@@ -343,17 +341,21 @@ p {
 }
 
 .popup button:hover:enabled,
-.popup button:focus:enabled {
+.popup button:focus:enabled
+ {
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   color: rgba(0, 0, 0, 0.65);
 }
 
-.popup button:hover:enabled {
+.popup button:hover:enabled,
+.display-question button:hover:enabled  {
   transform: translateY(-1px);
 }
 
-.popup button:active:enabled {
+.popup button:active:enabled,
+.display-question button:active:enabled
+{
   background-color: #F0F0F1;
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
@@ -370,12 +372,6 @@ p {
     color: #444;
     font-weight: bold;
 }
-
-.popup-result p {
-    color: #444;
-    font-weight: bold;
-}
-
 
 .popup input {
     margin-top: 20px;
@@ -406,13 +402,30 @@ iframe {
     height: 70%;
 }
 
-.popup-text-result {
-    width: 50%;
-    margin: 0 auto;
-    height: 10%;
-    color: black;
-}
 
-.popup-buttons-result{
-    padding-top: 50px;
-}
+.close {
+    position: absolute;
+    right: 32px;
+    top: 32px;
+    width: 32px;
+    height: 32px;
+    opacity: 0.3;
+  }
+  .close:hover {
+    opacity: 1;
+  }
+  .close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: #333;
+  }
+  .close:before {
+    transform: rotate(45deg);
+  }
+  .close:after {
+    transform: rotate(-45deg);
+  }
+  

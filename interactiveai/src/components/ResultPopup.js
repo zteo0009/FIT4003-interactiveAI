@@ -23,8 +23,8 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
 
     const [open, setOpen] = useState({
         state: false,
-        hide: "hide",
-        show: "show"
+        hide: "Hide Question",
+        show: "Show Question"
     });
     //incase we add conditional image
     const [image, setImg] = useState(() => {
@@ -44,8 +44,8 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
     const toggle = () => {
         const newState = {
             state: !open.state,
-            hide: "hide",
-            show: "show"
+            hide: "Hide Question",
+            show: "Show Question"
         }
         console.log(newState.state);
         setOpen(newState);
@@ -54,8 +54,8 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
     const hideQuestion = () => {
         const newState = {
             state: false,
-            hide: "hide",
-            show: "show"
+            hide: "Hide Question",
+            show: "Show Question"
         }
         setOpen(newState);
     }
@@ -66,53 +66,36 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup-result" variants={popup}>
                         <div className="popup-text-result">
-                            <p>Question {content} Summary</p>
+                        <button id="proceedBtn" className="close" onClick={() => {setShowPopUp(false); hideQuestion();}}></button>
+                        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-10">Question {content} Summary</h2>
                         </div>
-                        <div className="grid grid-rows-2 grid-flow-col gap-4">
-                            <div>
-                                <div className="glass-result-bg">
-                                    <div className="grid grid-rows-1 gap-10 min-w-full">
-                                        {/* <h3 className="text-black md:text-xl mb-2">{questions[currentQuestion].question}</h3> */}
-                                        <h3 className="text-black">
-                                        Feedback
-                                        </h3>
-                                        <p>
-                                            {clickedQuestion.rationale}
-                                        </p>
-                                    </div>
+                        <div className="grid grid-rows-6 grid-flow-col gap-2">
+                            <div className="display-question row-span-2">
+                                <div className="glass-result-bg mb-5">
+                                        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase m-5">Feedback</h2>
+                                        <p className="text-xl md:text-xl lg:text-xl m-10">{clickedQuestion.rationale}</p>
                                 </div>
-                                <button  onClick={toggle}>{!open.state? open.show: open.hide}</button>
+                                <button onClick={toggle}>{!open.state? open.show: open.hide}</button>
                             </div>
-                            {open.state && <div>
-                                <div className="grid grid-cols-2 gap-4 min-w-full">
+                            {open.state && 
+                                <div className="row-span-4">
+                                <div className="grid grid-cols-2 gap-4">
                                     <div>
-                                        <h3 className="text-black">
-                                            Scenario
-                                        </h3>
-                                        <p>{clickedQuestion.scenario}</p>
-                                        <h2> {clickedQuestion.question}</h2>
-                                        {/* <h3 className="text-black">
-                                            YOU CHOOSE:
-                                        </h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                            sed do eiusmod tempor incididunt ut labore et </p> */}
+                                    <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Scenario</h2>
+                                        <p className="text-xl md:text-xl lg:text-xl m-10 text-justify">{clickedQuestion.scenario}</p>
+                                        <p className="text-xl md:text-xl lg:text-xl m-10 font-bold">{clickedQuestion.question}</p>
                                     </div>
                                     <div>
-                                        <h3 className="text-black">Question Options</h3>
-                                        <p>A. {clickedQuestion.answerOptions[0].answerText}</p>
-                                        <p>B. {clickedQuestion.answerOptions[1].answerText}</p>
-                                        <p>C. {clickedQuestion.answerOptions[2].answerText}</p>
-                                        <p>D. {clickedQuestion.answerOptions[3].answerText}</p>
+                                    <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Question Options</h2>
+                                    <p className="text-xl md:text-xl lg:text-xl m-10 text-justify leading-loose">
+                                        A. {clickedQuestion.answerOptions[0].answerText}<br></br><br></br>
+                                        B. {clickedQuestion.answerOptions[1].answerText}<br></br><br></br>
+                                        C. {clickedQuestion.answerOptions[2].answerText}<br></br><br></br>
+                                        D. {clickedQuestion.answerOptions[3].answerText}<br></br><br></br>
+                                    </p>
                                     </div>
                                 </div>
-                            </div>}
-                        </div>
-					
-                        {/* <div className="popup-image-result">
-                            <img src={require(`../images/${image}`)} alt="" />
-                        </div> */}
-                        <div className="popup-buttons-result">
-                            <button id="proceedBtn" onClick={() => {setShowPopUp(false); hideQuestion();}}>Close</button>
+                                </div>}
                         </div>
                     </motion.div>
                 </motion.div>

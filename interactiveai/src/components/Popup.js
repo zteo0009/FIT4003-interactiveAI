@@ -55,9 +55,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                                     <button id="proceedBtn" disabled={btnDisabled} onClick={() => setShowPopUp(false)}>Proceed</button>
                                 </Link>
                             </div>
-
                         </div>
-
                     </motion.div>
                 </motion.div>
             )}
