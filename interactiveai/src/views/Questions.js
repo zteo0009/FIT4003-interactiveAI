@@ -4,7 +4,7 @@ import QuizOptions from '../components/QuizOptions'
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { db } from '../index'
-import { collection, getDocs, orderBy, query } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, addDoc } from "firebase/firestore";
 
 let scoreList = [];
 
@@ -41,6 +41,7 @@ const Questions = () => {
 		if (nextQuestion < questions.length) {
 			setCurrentQuestion(nextQuestion);
 		} else {
+			saveResults();
 			let path = '/result';
 			navigate(path, {
 				state: {
@@ -49,6 +50,12 @@ const Questions = () => {
 				}
 			});
 		}
+	}
+
+	const saveResults = async () => {
+		const docRef = await addDoc(collection(db, "Results"), {
+			score: scoreList
+		});
 	}
 
 	useEffect(() => {
