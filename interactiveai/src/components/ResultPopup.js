@@ -65,22 +65,23 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
             {showPopUp && (
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup-result" variants={popup}>
-                        <div className="popup-text-result">
                         <button id="proceedBtn" className="close" onClick={() => {setShowPopUp(false); hideQuestion();}}></button>
-                        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-10">Question {content} Summary</h2>
-                        </div>
+                        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-5">Question {content} Summary</h2>
+                        <hr></hr>
                         <div className="grid grid-rows-6 grid-flow-col gap-2">
                             <div className="display-question row-span-2">
-                                <div className="glass-result-bg mb-5">
+                                <div className="glass-result-bg my-5">
                                         <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase m-5">Feedback</h2>
                                         <p className="text-xl md:text-xl lg:text-xl m-10">{clickedQuestion.rationale}</p>
                                 </div>
                                 <button onClick={toggle}>{!open.state? open.show: open.hide}</button>
                             </div>
+                            
                             {open.state && 
                                 <div className="row-span-4">
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
+
                                     <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Scenario</h2>
                                         <p className="text-xl md:text-xl lg:text-xl m-10 text-justify">{clickedQuestion.scenario}</p>
                                         <p className="text-xl md:text-xl lg:text-xl m-10 font-bold">{clickedQuestion.question}</p>
