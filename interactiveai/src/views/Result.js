@@ -13,7 +13,10 @@ const Result = (props) => {
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
   const { state } = useLocation();
-  const questionRationale = state.questionlist;
+  const [questionRationale, setQuestionRationale] = useState(
+    () => {
+      return state.questionlist ? state.questionlist : []
+    });
   const [score, setScore] = useState(() => state.score.reduce((a, b) => a + b, 0));
   const navigate = useNavigate();
   const settings = {
