@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
@@ -6,12 +6,16 @@ import ResultPopup from '../components/ResultPopup';
 import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { db } from '../index'
 
 const Result = (props) => {
 
   const [clickedQuestion, setClickedQuestion] = useState([]);
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const { state } = useLocation();
   const [questionRationale, setQuestionRationale] = useState(
     () => {
@@ -28,29 +32,28 @@ const Result = (props) => {
     adaptiveHeight: true
   };
 
-  const renderFeedback = () => {
+  useEffect(() => {
 
-    if (score <= 21) {
+    const getFeedback = async () => {
+    const feedbackCollectionRef = await getDocs(collection(db, "Feedback"));
+    
+    feedbackCollectionRef.forEach((Doc) => {
+      if (score >= Doc.data().min && score <= Doc.data().max) {
+        setTitle(Doc.data().Header);
+        setDescription(Doc.data().Description);
+      }
+    });
+  }
+    getFeedback();
+
+  }, [])
+
+  const renderFeedback = () => {
       return <>
-        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You suck</h2>
+        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">{title}</h2>
         <p className="text-xl md:text-xl lg:text-xl mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          {description}</p>
       </>
-    }
-    else if (score <= 42) {
-      return <>
-        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You did ok</h2>
-        <p className="text-xl md:text-xl lg:text-xl mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </>
-    }
-    else {
-      return <>
-        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">You're literally hacking</h2>
-        <p className="text-xl md:text-xl lg:text-xl mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-      </>
-    }
   }
 
   const showExplanation = (questionno) => {
@@ -87,6 +90,8 @@ const Result = (props) => {
   for (let i = 1; i <= questionRationale.length; i+= 3){
     quesNos.push(i);
   }
+
+
   return (
     <React.Fragment>
       <section>
