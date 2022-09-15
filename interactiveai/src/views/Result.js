@@ -12,6 +12,7 @@ import { db } from '../index'
 const Result = (props) => {
 
   const [clickedQuestion, setClickedQuestion] = useState([]);
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState(1);
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
   const [title, setTitle] = useState("");
@@ -63,8 +64,14 @@ const Result = (props) => {
       let indexRationale = i + 1;
       if (questionno.match(String(indexRationale))) {
         setClickedQuestion(questionRationale[i]);
+        for (let j = 0; j < questionRationale[i].answerOptions.length; j++) {
+          if (questionRationale[i].answerOptions[j].score == state.score[questionno - 1]) {
+            setSelectedOptionIndex(j);
+          }
+        }
       }
     }
+    console.log("AAAAAAAAAAAAAAAAAA = ", selectedOptionIndex);
     console.log(clickedQuestion);
   }
 
@@ -95,7 +102,7 @@ const Result = (props) => {
   return (
     <React.Fragment>
       <section>
-        <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question} score={score} clickedQuestion={clickedQuestion} />
+        <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question} score={score} clickedQuestion={clickedQuestion} selectedOptionIndex={selectedOptionIndex} />
         <motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
           <div className=' w-full h-full centered md:w-screen flex flex-col text-center px-6 pt-5'>
             <div className="flex-1 text-black" style={{ display: 'block', alignItems: 'center' }}>

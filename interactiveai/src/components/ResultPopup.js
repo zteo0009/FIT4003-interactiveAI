@@ -19,7 +19,7 @@ const popup = {
     },
 }
 
-const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion }) => {
+const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion, selectedOptionIndex }) => {
 
     const [open, setOpen] = useState({
         state: false,
@@ -93,6 +93,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion 
                                         B. {clickedQuestion.answerOptions[1].answerText}<br></br><br></br>
                                         C. {clickedQuestion.answerOptions[2].answerText}<br></br><br></br>
                                         D. {clickedQuestion.answerOptions[3].answerText}<br></br><br></br>
+                                        You selected: {selectedOptionIndex==0 ? "A" : selectedOptionIndex==1 ? "B" : selectedOptionIndex==2 ? "C" : "D"}<br></br><br></br>
                                     </p>
                                     </div>
                                 </div>
