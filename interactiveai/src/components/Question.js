@@ -5,7 +5,8 @@ function Question(props) {
                 <h3 className="text-black mb-2">Question {props.question.questionno}/x</h3>
                 <h2 className="uppercase mb-6">Given the scenario...</h2>
                 <div className="illustration mb-6">
-                    <img src={require('../images/sample-illustration.png')} alt="" />
+                    {/* <img src={require('../images/sample-illustration.png')} alt="" /> */}
+                    <img src={props.question.image} alt="" />
                 </div>
                 <p className="text-base text-black md:text-lg lg:text-base text-justify mb-6 ">{props.question.scenario}</p>
             </main>
