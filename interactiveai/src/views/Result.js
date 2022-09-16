@@ -36,25 +36,25 @@ const Result = (props) => {
   useEffect(() => {
 
     const getFeedback = async () => {
-    const feedbackCollectionRef = await getDocs(collection(db, "Feedback"));
-    
-    feedbackCollectionRef.forEach((Doc) => {
-      if (score >= Doc.data().min && score <= Doc.data().max) {
-        setTitle(Doc.data().Header);
-        setDescription(Doc.data().Description);
-      }
-    });
-  }
+      const feedbackCollectionRef = await getDocs(collection(db, "Feedback"));
+
+      feedbackCollectionRef.forEach((Doc) => {
+        if (score >= Doc.data().min && score <= Doc.data().max) {
+          setTitle(Doc.data().Header);
+          setDescription(Doc.data().Description);
+        }
+      });
+    }
     getFeedback();
 
   }, [])
 
   const renderFeedback = () => {
-      return <>
-        <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">{title}</h2>
-        <p className="text-xl md:text-xl lg:text-xl mb-10">
-          {description}</p>
-      </>
+    return <>
+      <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">{title}</h2>
+      <p className="text-xl md:text-xl lg:text-xl mb-10">
+        {description}</p>
+    </>
   }
 
   const showExplanation = (questionno) => {
@@ -82,8 +82,8 @@ const Result = (props) => {
     return (
       <div className="slider-content">
         <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques1)}>Question {ques1}</button>
-        {questionNo + 1 <= 16 ? <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques2)}>Question {ques2}</button>: ""}
-        {questionNo + 2 <= 16 ? <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques3)}>Question {ques3}</button>: ""}
+        {questionNo + 1 <= questionRationale.length ? <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques2)}>Question {ques2}</button> : ""}
+        {questionNo + 2 <= questionRationale.length ? <button className="result-btn w-5/6 mb-4 text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12" onClick={() => showExplanation(ques3)}>Question {ques3}</button> : ""}
       </div>
     )
   }
@@ -94,7 +94,7 @@ const Result = (props) => {
   }
 
   let quesNos = []
-  for (let i = 1; i <= questionRationale.length; i+= 3){
+  for (let i = 1; i <= questionRationale.length; i += 3) {
     quesNos.push(i);
   }
 

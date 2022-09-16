@@ -74,7 +74,8 @@ const Questions = () => {
 							question: subCollectionDoc.data().Question,
 							answerOptions: shuffle(subCollectionDoc.data().AnswerOptions),
 							questionno: subCollectionDoc.data().Questionno,
-							rationale: subCollectionDoc.data().rationale
+							rationale: subCollectionDoc.data().rationale,
+							principle: subCollectionDoc.data().principle
 						})
 					} else {
 						temp.push({
@@ -82,7 +83,8 @@ const Questions = () => {
 							question: subCollectionDoc.data().Question,
 							answerOptions: subCollectionDoc.data().AnswerOptions,
 							questionno: subCollectionDoc.data().Questionno,
-							rationale: subCollectionDoc.data().rationale
+							rationale: subCollectionDoc.data().rationale,
+							principle: subCollectionDoc.data().principle
 						})
 					}
 					
