@@ -62,13 +62,33 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion,
     const questionFeedback = () => {
         let obtainedScore = clickedQuestion.answerOptions[selectedOptionIndex].score
         if (obtainedScore == 1) {
-            return <p className="text-xl md:text-xl lg:text-xl m-10 text-justify">Good try! However, your understanding in the ethics principle of {clickedQuestion.principle} can still use some work...</p>
+            return <>
+                <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Good try! However, your understanding in the ethics principle of {clickedQuestion.principle} can still use some work...</p>
+                <div className="feedback-popup mb-6">
+                    <img class="scale-20" src={require('../images/bad-feedback.png')} alt="" />
+                </div>
+            </>
         } else if (obtainedScore == 2) {
-            return <p className="text-xl md:text-xl lg:text-xl m-10 text-justify">Nice work! You have shown a slight understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
+            return <>
+                <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Nice work! You have shown a slight understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
+                <div className="feedback-popup mb-6">
+                    <img class="scale-20" src={require('../images/average-feedback.png')} alt="" />
+                </div>
+            </>
         } else if (obtainedScore == 3) {
-            return <p className="text-xl md:text-xl lg:text-xl m-10 text-justify">Good job! You have shown good understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
+            return <>
+                <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Good job! You have shown good understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
+                <div className="feedback-popup mb-6">
+                    <img class="scale-20" src={require('../images/average-feedback.png')} alt="" />
+                </div>
+            </>
         } else {
-            return <p className="text-xl md:text-xl lg:text-xl m-10 text-justify">Congratulations! You have shown thorough understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
+            return <>
+                <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Congratulations! You have shown thorough understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
+                <div className="feedback-popup mb-6">
+                    <img src={require('../images/good-feedback.png')} alt="" />
+                </div>
+            </>
         }
     }
 

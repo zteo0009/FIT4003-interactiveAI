@@ -434,4 +434,17 @@ iframe {
   .close:after {
     transform: rotate(-45deg);
   }
-  
+
+.feedback-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden!important;
+    height: 35%;
+    }
+    
+.feedback-popup img{
+    flex-shrink: 0;
+    width: 100px;
+    height: 100%;
+}
