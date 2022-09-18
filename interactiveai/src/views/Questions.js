@@ -110,7 +110,7 @@ const Questions = () => {
 					{questions && questions.length > 0 &&
 						<div className="col-span-2 questions-parent max-h-screen md:h-screen ">
 							<div className='scenario-questions-card glass-bg'>
-								<Question question={questions[currentQuestion]} />
+								<Question question={questions[currentQuestion]} total={questions.length} />
 							</div>
 						</div>
 					}
