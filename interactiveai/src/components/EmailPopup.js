@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { db } from '../index'
+import { collection, addDoc } from "firebase/firestore";
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -22,14 +23,23 @@ const popup = {
 
 const EmailPopup = ({ showPopUp, setShowPopUp }) => {
 
+    const [email, setEmail] = useState("");
     const [btnDisabled, setBtnDisable] = useState(true);
     const canBeSubmitted = (input) => {
+        setEmail(input);
         if (input.trim().length !== 0) {
             setBtnDisable(false);
         } else {
             setBtnDisable(true);
         }
     }
+
+    const submitEmail = async () => {
+        console.log("a");
+		const docRef = await addDoc(collection(db, "Emails"), {
+			email: email
+		});
+	}
 
     return (
         <AnimatePresence exitBeforeEnter>
@@ -44,7 +54,7 @@ const EmailPopup = ({ showPopUp, setShowPopUp }) => {
                             <input type="text" name="name" onChange={(e) => canBeSubmitted(e.target.value)}/>
                         </label>
                         <div>
-                            <button id="proceedBtn" disabled={btnDisabled} className="submitButton" onClick={() => setShowPopUp(false)}>Submit</button>
+                            <button id="proceedBtn" disabled={btnDisabled} className="submitButton" onClick={() => submitEmail()}>Submit</button>
                         </div>
                     </motion.div>
                 </motion.div>

@@ -3,7 +3,7 @@ import Question from '../components/Question'
 import QuizOptions from '../components/QuizOptions'
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
-import { db } from '../index'
+import { db } from '../index';
 import { collection, getDocs, orderBy, query, addDoc } from "firebase/firestore";
 
 let scoreList = [];
