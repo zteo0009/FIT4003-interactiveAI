@@ -25,7 +25,7 @@ function Homepage() {
                     <div className="max-w-xl">
                         <h3>Welcome to our</h3>
                         <h1>AI ETHICS QUIZ</h1>
-                        <p>Are YOU interested in understanding the limits of ur AI ethics knowledge? </p>
+                        <p>Are YOU interested in understanding the limits of your AI ethics knowledge? </p>
                         <button
                             type="submit"
                             value="Let's start!"
