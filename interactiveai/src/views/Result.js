@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import ResultPopup from '../components/ResultPopup';
+import EmailPopup from '../components/EmailPopup';
 import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -15,6 +16,7 @@ const Result = (props) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(1);
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
+  const [showEmailPopUp, setShowEmailPopUp] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { state } = useLocation();
@@ -103,6 +105,7 @@ const Result = (props) => {
     <React.Fragment>
       <section>
         <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question} score={score} clickedQuestion={clickedQuestion} selectedOptionIndex={selectedOptionIndex} />
+        <EmailPopup showPopUp={showEmailPopUp} setShowPopUp={setShowEmailPopUp} />
         <motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
           <div className=' w-full h-full centered md:w-screen flex flex-col text-center px-6 pt-5'>
             <div className="flex-1 text-black" style={{ display: 'block', alignItems: 'center' }}>
@@ -130,6 +133,14 @@ const Result = (props) => {
                   id="member_submit"
                   className="start-btn"
                   onClick={tryAgainButton}>Try Again!</button>
+                
+                <button
+                  type="submit"
+                  value="Let's start!"
+                  name="member[submit]"
+                  id="member_submit"
+                  className="start-btn"
+                  onClick={() => setShowEmailPopUp(true)}>Interview</button>
               </main>
             </div>
           </div>
