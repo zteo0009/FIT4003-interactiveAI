@@ -334,7 +334,7 @@ p {
 .feedback h2, .popup-result h2, .popup-result p, .feedback p{
     color:#030052;
 }
-.popup button, .display-question button{
+.popup button, .submitButton, .display-question button{
   align-items: center;
   background-color: #FFFFFF;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -362,7 +362,9 @@ p {
 }
 
 .popup button:hover:enabled,
-.popup button:focus:enabled
+.popup button:focus:enabled,
+.submitButton:hover:enabled,
+.submitButton:focus:enabled
  {
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
@@ -370,11 +372,13 @@ p {
 }
 
 .popup button:hover:enabled,
+.submitButton:hover:enabled,
 .display-question button:hover:enabled  {
   transform: translateY(-1px);
 }
 
 .popup button:active:enabled,
+.submitButton:active:enabled,
 .display-question button:active:enabled
 {
   background-color: #F0F0F1;
@@ -463,3 +467,9 @@ iframe {
     width: 100px;
     height: 100%;
 }
+
+.popup-email input {
+    margin-left: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #000000;
+  }

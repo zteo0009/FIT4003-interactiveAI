@@ -35,10 +35,11 @@ const EmailPopup = ({ showPopUp, setShowPopUp }) => {
     }
 
     const submitEmail = async () => {
-        console.log("a");
 		const docRef = await addDoc(collection(db, "Emails"), {
 			email: email
 		});
+        setBtnDisable(true);
+        setShowPopUp(false);
 	}
 
     return (
