@@ -24,7 +24,7 @@ const EmailPopup = ({ showPopUp, setShowPopUp }) => {
 
     const [btnDisabled, setBtnDisable] = useState(true);
     const canBeSubmitted = (input) => {
-        if (input) {
+        if (input.trim().length !== 0) {
             setBtnDisable(false);
         } else {
             setBtnDisable(true);
@@ -41,10 +41,10 @@ const EmailPopup = ({ showPopUp, setShowPopUp }) => {
                         <p className="text-xl md:text-xl lg:text-xl mb-10">If you would like to participate in an interview to share more of your thoughts at a later date, please leave your email details so we can contact you.</p>
                         <label>
                             Email:
-                            <input type="text" name="name" />
+                            <input type="text" name="name" onChange={(e) => canBeSubmitted(e.target.value)}/>
                         </label>
                         <div>
-                            <button id="proceedBtn" className="submitButton" onClick={() => setShowPopUp(false)}>Submit</button>
+                            <button id="proceedBtn" disabled={btnDisabled} className="submitButton" onClick={() => setShowPopUp(false)}>Submit</button>
                         </div>
                     </motion.div>
                 </motion.div>
