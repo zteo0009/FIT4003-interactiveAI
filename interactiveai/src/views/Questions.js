@@ -69,17 +69,17 @@ const Questions = () => {
 				const image = collectionDoc.data().image;
 				let subCollectionDocs = await getDocs(query(collection(db, "Scenario", collectionDoc.id, "Questions"), orderBy("Questionno")));
 				subCollectionDocs.forEach(subCollectionDoc => {
-					// if (subCollectionDoc.data().shuffle) {
-					// 	temp.push({
-					// 		scenario: scenario,
-					// 		image: image,
-					// 		question: subCollectionDoc.data().Question,
-					// 		answerOptions: shuffle(subCollectionDoc.data().AnswerOptions),
-					// 		questionno: subCollectionDoc.data().Questionno,
-					// 		rationale: subCollectionDoc.data().rationale,
-					// 		principle: subCollectionDoc.data().principle
-					// 	})
-					// } else {
+					if (subCollectionDoc.data().shuffle) {
+						temp.push({
+							scenario: scenario,
+							image: image,
+							question: subCollectionDoc.data().Question,
+							answerOptions: shuffle(subCollectionDoc.data().AnswerOptions),
+							questionno: subCollectionDoc.data().Questionno,
+							rationale: subCollectionDoc.data().rationale,
+							principle: subCollectionDoc.data().principle
+						})
+					} else {
 						temp.push({
 							scenario: scenario,
 							image: image,
@@ -89,7 +89,7 @@ const Questions = () => {
 							rationale: subCollectionDoc.data().rationale,
 							principle: subCollectionDoc.data().principle
 						})
-					// }
+					}
 				});
 				setQuestions(temp);
 			});
