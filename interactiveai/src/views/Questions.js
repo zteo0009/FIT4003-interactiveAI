@@ -53,8 +53,16 @@ const Questions = () => {
 	}
 
 	const saveResults = async () => {
+		var d = new Date,
+		dformat = [d.getMonth()+1,
+				d.getDate(),
+				d.getFullYear()].join('/')+' '+
+				[d.getHours(),
+				d.getMinutes(),
+				d.getSeconds()].join(':');
 		const docRef = await addDoc(collection(db, "Results"), {
-			score: scoreList
+			score: scoreList,
+			date: dformat
 		});
 	}
 
@@ -97,6 +105,7 @@ const Questions = () => {
 		}
 
 		getQuestions();
+		scoreList = [];
 	}, [])
 
 	return (
