@@ -7,7 +7,7 @@ import EmailPopup from '../components/EmailPopup';
 import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, addDoc } from "firebase/firestore";
 import { db } from '../index'
 
 const Result = (props) => {
@@ -100,6 +100,25 @@ const Result = (props) => {
     quesNos.push(i);
   }
 
+  const [email, setEmail] = useState("");
+  const [btnDisabled, setBtnDisable] = useState(true);
+  const canBeSubmitted = (input) => {
+      setEmail(input);
+      if (input.trim().length !== 0) {
+          setBtnDisable(false);
+      } else {
+          setBtnDisable(true);
+      }
+  }
+
+  const submitEmail = async () => {
+  const docRef = await addDoc(collection(db, "Emails"), {
+    email: email
+  });
+      setBtnDisable(true);
+      setShowPopUp(false);
+}
+
 
   return (
     <React.Fragment>
@@ -133,14 +152,23 @@ const Result = (props) => {
                   id="member_submit"
                   className="start-btn"
                   onClick={tryAgainButton}>Try Again!</button>
-                
-                <button
+                <hr></hr>
+                <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-5">Interview</h2>
+                        <p className="text-xl md:text-xl lg:text-xl mb-10">If you would like to participate in an interview to share more of your thoughts at a later date, please leave your email details so we can contact you.</p>
+                        <label>
+                            Email:
+                            <input type="text" name="name" onChange={(e) => canBeSubmitted(e.target.value)}/>
+                        </label>
+                        <div>
+                            <button id="proceedBtn" disabled={btnDisabled} className="submitButton" onClick={() => submitEmail()}>Submit</button>
+                        </div>
+                {/* <button
                   type="submit"
                   value="Let's start!"
                   name="member[submit]"
                   id="member_submit"
                   className="start-btn"
-                  onClick={() => setShowEmailPopUp(true)}>Interview</button>
+                  onClick={() => setShowEmailPopUp(true)}>Interview</button> */}
               </main>
             </div>
           </div>

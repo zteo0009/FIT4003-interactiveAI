@@ -64,28 +64,28 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion,
         if (obtainedScore == 1) {
             return <>
                 <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Good try! However, your understanding in the ethics principle of {clickedQuestion.principle} can still use some work...</p>
-                <div className="feedback-popup mb-6">
+                <div className="feedback-popup">
                     <img class="scale-20" src={require('../images/bad-feedback.png')} alt="" />
                 </div>
             </>
         } else if (obtainedScore == 2) {
             return <>
                 <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Nice work! You have shown a slight understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
-                <div className="feedback-popup mb-6">
-                    <img class="scale-20" src={require('../images/average-feedback.png')} alt="" />
+                <div className="feedback-popup">
+                    <img class="" src={require('../images/average-feedback.png')} alt="" />
                 </div>
             </>
         } else if (obtainedScore == 3) {
             return <>
                 <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Good job! You have shown good understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
-                <div className="feedback-popup mb-6">
-                    <img class="scale-20" src={require('../images/average-feedback.png')} alt="" />
+                <div className="feedback-popup">
+                    <img class="" src={require('../images/average-feedback.png')} alt="" />
                 </div>
             </>
         } else {
             return <>
                 <p className="text-xl md:text-xl lg:text-xl m-10 text-center">Congratulations! You have shown thorough understanding in the ethics principle of {clickedQuestion.principle} when answering this question!</p>
-                <div className="feedback-popup mb-6">
+                <div className="feedback-popup">
                     <img src={require('../images/good-feedback.png')} alt="" />
                 </div>
             </>
@@ -100,9 +100,11 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion,
                         <button id="proceedBtn" className="close" onClick={() => { setShowPopUp(false); hideQuestion(); }}></button>
                         <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-5">Question {content} Summary</h2>
                         <hr></hr>
-                        <div className="grid grid-rows-6 grid-flow-col gap-2">
+                        <div className="grid grid-rows-8 gap-2">
+                        <div className="display-question row-span-2">
+                        {questionFeedback()}
+                        </div>
                             <div className="display-question row-span-2">
-                                {questionFeedback()}
                                 <div className="glass-result-bg my-5">
                                     <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase m-5">Feedback</h2>
                                     <p className="text-xl md:text-xl lg:text-xl m-10">{clickedQuestion.rationale}</p>
