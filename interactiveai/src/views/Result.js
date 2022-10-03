@@ -53,8 +53,8 @@ const Result = (props) => {
 
   const renderFeedback = () => {
     return <>
-      <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-16">{title}</h2>
-      <p className="text-xl md:text-xl lg:text-xl mb-10">
+      <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase ">{title}</h2>
+      <p className="text-xl md:text-xl lg:text-xl py-6">
         {description}</p>
     </>
   }
@@ -141,34 +141,34 @@ const Result = (props) => {
           </div>
 
           {/* page 2 */}
-          <div className='w-full h-full glass-bg-2 centered md:w-screen'>
-            <div className="min-h-screen text-black" style={{ display: 'block', alignItems: 'center' }}>
-              <main className="feedback container mx-auto px-6 pt-16 flex-1 text-center">
+          <div className='w-full glass-bg-2 centered md:w-screen overflow-y-auto'>
+            <div className="text-black" style={{ display: 'block', alignItems: 'center' }}>
+              <main className="feedback container mx-auto py-10 flex-1 text-center">
                 {renderFeedback()}
+                <div>
                 <button
                   type="submit"
                   value="Let's start!"
                   name="member[submit]"
                   id="member_submit"
-                  className="start-btn"
                   onClick={tryAgainButton}>Try Again!</button>
+                </div>
                 <hr></hr>
-                <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-5">Interview</h2>
-                        <p className="text-xl md:text-xl lg:text-xl mb-10">If you would like to participate in an interview to share more of your thoughts at a later date, please leave your email details so we can contact you.</p>
-                        <label>
-                            Email:
-                            <input type="text" name="name" onChange={(e) => canBeSubmitted(e.target.value)}/>
-                        </label>
-                        <div>
-                            <button id="proceedBtn" disabled={btnDisabled} className="submitButton" onClick={() => submitEmail()}>Submit</button>
+                <div>
+                <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Interview</h2>
+                        <p className="text-xl md:text-xl lg:text-xl mb-8">If you would like to participate in an interview to share more of your thoughts at a later date, please leave your email details so we can contact you.</p>
+                        <div className="grid grid-cols-6 content-center">
+                        <div className="col-span-1 my-2 ">
+                            <i class="fa-solid fa-envelope fa-xl float-right"></i>
                         </div>
-                {/* <button
-                  type="submit"
-                  value="Let's start!"
-                  name="member[submit]"
-                  id="member_submit"
-                  className="start-btn"
-                  onClick={() => setShowEmailPopUp(true)}>Interview</button> */}
+                                <div className="col-span-4">
+                                    <input type="text" name="name" placeholder=" Enter your e-mail here" onChange={(e) => canBeSubmitted(e.target.value)}/>
+                                </div>
+                                <div className="col-span-1">
+                                   <button id="proceedBtn" disabled={btnDisabled} onClick={() => submitEmail()}>Submit</button>
+                                </div>
+                        </div>
+                </div>
               </main>
             </div>
           </div>

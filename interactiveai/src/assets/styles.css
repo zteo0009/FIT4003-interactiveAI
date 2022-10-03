@@ -124,7 +124,6 @@ p {
 
 .options div:nth-child(1) button{
     background: #E74781;
-
 }
 
 .options div:nth-child(2) button{
@@ -152,6 +151,7 @@ p {
     height: auto;
 }
 
+
 .start-btn {
     width: 210px;
     height: 82px;
@@ -175,7 +175,77 @@ p {
     transition: all .4s ease-in-out;
 }
 
+.feedback button{
+    transition-duration: 0.4s;
+    width: 160px;
+    height: 50px;
+    position: relative;
+    border-radius: 20px;
+    z-index: 100;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+    opacity: 0.8;
+    font-size: 1.3rem;
+    background: #4440C3;
+}
 
+.feedback button:hover:enabled
+ {
+    opacity: 1;
+    -o-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.feedback button:disabled {
+    background: #E678AF;
+    cursor: not-allowed;
+    float:left;
+    left: 10%;
+}
+
+.feedback div:nth-child(3) button{
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.feedback div:nth-child(5) button:enabled{
+    background: #6BBDB2;
+    float:left;
+    left: 10%;
+}
+.feedback i {
+    color: #4440C3;
+    opacity: 0.8;
+    padding-top: 20px;
+}
+.feedback input{
+    width: 90%;
+    color: rgb(36, 35, 42);
+    font-size: 16px;
+    line-height: 30px;
+    min-height: 28px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    border: 2px solid transparent;
+    outline: none;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background: rgb(251, 251, 251);
+    transition: all 0.1s ease 0s;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+.feedback input:focus{
+    border: 2px solid rgb(124, 138, 255);
+}
+
+.feedback hr {
+    border: 0.1px solid rgba(5, 2, 97, 0.075);
+    width: 100%;
+    /* margin: 0 auto; */
+}
 
 @keyframes robotAnimation {
     from {
@@ -186,6 +256,7 @@ p {
         left: 395px;
     }
 }
+
 
 .robot-hand {
     position: absolute;
