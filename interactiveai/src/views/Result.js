@@ -101,30 +101,43 @@ const Result = (props) => {
   }
 
   const [email, setEmail] = useState("");
+  const [emailFeedbackMsg, setEmailFeedbackMsg] = useState("");
   const [btnDisabled, setBtnDisable] = useState(true);
   const canBeSubmitted = (input) => {
-      setEmail(input);
-      if (input.trim().length !== 0) {
-          setBtnDisable(false);
-      } else {
-          setBtnDisable(true);
-      }
+    setEmail(input);
+    if (!isValidEmail(email)) {
+      setEmailFeedbackMsg("Invalid email!");
+    } else {
+      setEmailFeedbackMsg("");
+    }
+    if (input.trim().length == 0) {
+      setEmailFeedbackMsg("");
+    }
+    if (input.trim().length !== 0 && isValidEmail(email)) {
+      setBtnDisable(false);
+    } else {
+      setBtnDisable(true);
+    }
   }
 
   const submitEmail = async () => {
-  const docRef = await addDoc(collection(db, "Emails"), {
-    email: email
-  });
-      setBtnDisable(true);
-      setShowPopUp(false);
-}
+    const docRef = await addDoc(collection(db, "Emails"), {
+      email: email
+    });
+    setEmail("");
+    setEmailFeedbackMsg("Success! Expect to hear from the research team soon!");
+    setBtnDisable(true);
+  }
+
+  const isValidEmail = (email) => {
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  }
 
 
   return (
     <React.Fragment>
       <section>
         <ResultPopup showPopUp={showPopUp} setShowPopUp={setShowPopUp} content={question} score={score} clickedQuestion={clickedQuestion} selectedOptionIndex={selectedOptionIndex} />
-        <EmailPopup showPopUp={showEmailPopUp} setShowPopUp={setShowEmailPopUp} />
         <motion.div className='w-screen h-screen grid grid-rows-2 text-black text-4xl md:grid-rows-2' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
           <div className=' w-full h-full centered md:w-screen flex flex-col text-center px-6 pt-5'>
             <div className="flex-1 text-black" style={{ display: 'block', alignItems: 'center' }}>
@@ -146,28 +159,33 @@ const Result = (props) => {
               <main className="feedback container mx-auto py-10 flex-1 text-center">
                 {renderFeedback()}
                 <div>
-                <button
-                  type="submit"
-                  value="Let's start!"
-                  name="member[submit]"
-                  id="member_submit"
-                  onClick={tryAgainButton}>Try Again!</button>
+                  <button
+                    type="submit"
+                    value="Let's start!"
+                    name="member[submit]"
+                    id="member_submit"
+                    onClick={tryAgainButton}>Try Again!</button>
                 </div>
                 <hr></hr>
                 <div>
-                <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Interview</h2>
-                        <p className="text-xl md:text-xl lg:text-xl mb-8">If you would like to participate in an interview to share more of your thoughts at a later date, please leave your email details so we can contact you.</p>
-                        <div className="grid grid-cols-6 content-center">
-                        <div className="col-span-1 my-2 ">
-                            <i class="fa-solid fa-envelope fa-xl float-right"></i>
-                        </div>
-                                <div className="col-span-4">
-                                    <input type="text" name="name" placeholder=" Enter your e-mail here" onChange={(e) => canBeSubmitted(e.target.value)}/>
-                                </div>
-                                <div className="col-span-1">
-                                   <button id="proceedBtn" disabled={btnDisabled} onClick={() => submitEmail()}>Submit</button>
-                                </div>
-                        </div>
+                  <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Interview</h2>
+                  <p className="text-xl md:text-xl lg:text-xl mb-8">If you would like to participate in an interview to share more of your thoughts at a later date, please leave your email details so we can contact you.</p>
+                  <div className="grid grid-cols-6 content-center">
+                    <div className="col-span-1 my-2 ">
+                      <i class="fa-solid fa-envelope fa-xl float-right"></i>
+                    </div>
+                    <div className="col-span-4">
+                      <input type="text" name="name" placeholder=" Enter your e-mail here" onChange={(e) => canBeSubmitted(e.target.value)} />
+                    </div>
+                    <div className="col-span-1">
+                      <button id="proceedBtn" disabled={btnDisabled} onClick={() => submitEmail()}>Submit</button>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-3">
+                    <div className="col-start-2">
+                      {emailFeedbackMsg.length > 0 && <p className="text-xl md:text-xl lg:text-xl mb-8" style={{color: emailFeedbackMsg == "Invalid email!" ? "red" : "green"}}>{emailFeedbackMsg}</p>}
+                    </div>
+                  </div>
                 </div>
               </main>
             </div>
