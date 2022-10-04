@@ -121,7 +121,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion,
                                             <p className="text-xl md:text-xl lg:text-xl m-10 font-bold">{clickedQuestion.question}</p>
                                         </div>
                                         <div>
-                                            <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Question Options</h2>
+                                            <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase my-5">Answer Options</h2>
                                             <p className="text-xl md:text-xl lg:text-xl m-10 text-justify leading-loose">
                                                 A. {clickedQuestion.answerOptions[0].answerText}<br></br><br></br>
                                                 B. {clickedQuestion.answerOptions[1].answerText}<br></br><br></br>

@@ -73,8 +73,6 @@ const Result = (props) => {
         }
       }
     }
-    console.log("AAAAAAAAAAAAAAAAAA = ", selectedOptionIndex);
-    console.log(clickedQuestion);
   }
 
   const returnExplanation = (questionNo) => {
