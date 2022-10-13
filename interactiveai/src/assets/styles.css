@@ -418,7 +418,15 @@ background: linear-gradient(180deg, rgba(247,121,125,1) 1%, rgba(251,215,134,1) 
 }
 
 .slick-current > div{
-   height: 100%;
+    height: 100%;
+}
+
+.slick-prev::before {
+    font-size: 50px !important;
+}
+.slick-next::before {
+    font-size: 50px !important;
+    margin-left: -30px !important;
 }
 
 .feedback h2, .popup-result h2, .popup-result p, .feedback p{
