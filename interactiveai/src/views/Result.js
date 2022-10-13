@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import ResultPopup from '../components/ResultPopup';
-import EmailPopup from '../components/EmailPopup';
 import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,7 +15,6 @@ const Result = (props) => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(1);
   const [question, setQuestionno] = useState(1);
   const [showPopUp, setShowPopUp] = useState(false);
-  const [showEmailPopUp, setShowEmailPopUp] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const { state } = useLocation();
