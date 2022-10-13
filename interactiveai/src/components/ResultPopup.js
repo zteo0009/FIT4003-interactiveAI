@@ -92,6 +92,15 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion,
         }
     }
 
+    const findBestAnswer = (options) => {
+        const alphabets = ["A", "B", "C", "D"];
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].score == 4) {
+                return alphabets[i]
+            }
+        }
+    }
+
     return (
         <AnimatePresence exitBeforeEnter>
             {showPopUp && (
@@ -101,9 +110,9 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion,
                         <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase mb-5">Question {content} Summary</h2>
                         <hr></hr>
                         <div className="grid grid-rows-8 gap-2">
-                        <div className="display-question row-span-2">
-                        {questionFeedback()}
-                        </div>
+                            <div className="display-question row-span-2">
+                                {questionFeedback()}
+                            </div>
                             <div className="display-question row-span-2">
                                 <div className="glass-result-bg my-5">
                                     <h2 className="text-2xl md:text-2xl lg:text-2xl uppercase m-5">Feedback</h2>
@@ -128,6 +137,7 @@ const ResultPopup = ({ showPopUp, setShowPopUp, content, score, clickedQuestion,
                                                 C. {clickedQuestion.answerOptions[2].answerText}<br></br><br></br>
                                                 D. {clickedQuestion.answerOptions[3].answerText}<br></br><br></br>
                                                 You selected: {selectedOptionIndex == 0 ? "A" : selectedOptionIndex == 1 ? "B" : selectedOptionIndex == 2 ? "C" : "D"}<br></br><br></br>
+                                                Best Answer: {findBestAnswer(clickedQuestion.answerOptions)}
                                             </p>
                                         </div>
                                     </div>
