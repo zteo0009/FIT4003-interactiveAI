@@ -257,7 +257,26 @@ p {
     }
 }
 
+.first-scenario-bg {
+    background: rgb(230,119,175);
+    background: linear-gradient(180deg, rgba(230,119,175,1) 23%, rgba(244,179,206,1) 52%, rgba(230,184,251,1) 80%);
+}
 
+.second-scenario-bg {
+    background: rgb(115,99,214);
+    background: linear-gradient(180deg, rgba(115,99,214,1) 23%, rgba(190,114,226,1) 52%, rgba(231,202,244,1) 80%);
+ }
+ 
+ .third-scenario-bg {
+    background: rgb(247,121,125);
+background: linear-gradient(180deg, rgba(247,121,125,1) 1%, rgba(251,215,134,1) 70%, rgba(210,245,224,1) 100%);
+ }
+
+ .fourth-scenario-bg {
+    background: rgb(34,195,177);
+    background: linear-gradient(180deg, rgba(34,195,177,1) 0%, rgba(212,217,255,1) 100%);
+ }
+ 
 .robot-hand {
     position: absolute;
     z-index: 100;

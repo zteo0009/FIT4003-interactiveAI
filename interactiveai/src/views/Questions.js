@@ -22,7 +22,6 @@ function shuffle(array) {
 		[array[currentIndex], array[randomIndex]] = [
 			array[randomIndex], array[currentIndex]];
 	}
-
 	return array;
 }
 
@@ -108,11 +107,32 @@ const Questions = () => {
 		scoreList = [];
 	}, [])
 
+	const getBackgroundColor = (question) => {
+		let color;
+
+		if (question !== undefined)
+		{
+			let questionNo = question.questionno;
+			if (questionNo >= 1 && questionNo < 5) {
+				color = 'first-scenario-bg';
+			} else if (questionNo >= 5 && questionNo < 8) {
+				color = 'second-scenario-bg';
+			} else if (questionNo >= 8 && questionNo < 11) {
+				color = 'third-scenario-bg';
+			} else if (questionNo >= 11) {
+				color = 'fourth-scenario-bg';
+			}
+			return color;
+		} else {
+			return '';
+		}
+
+	};
+
 	return (
 		< React.Fragment >
 			<section>
-				<motion.div className='w-screen grid text-black text-4xl md:grid-cols-5' initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
-					<img className="fixed bottom-0 object-center w-2/3 h-5/6" src={require('../images/ellipse-2.png')} alt="" />
+				<motion.div className={`w-screen grid text-black text-4xl md:grid-cols-5 ${getBackgroundColor(questions[currentQuestion])}`} initial={{ width: 0 }} animate={{ width: "100%" }} exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}>
 					<img className="fixed top-30 left-0 " src={require('../images/ellipse-1.png')} alt="" />
 					{/* Left part */}
 					{questions && questions.length > 0 &&
@@ -134,7 +154,7 @@ const Questions = () => {
 									<p>Please select an answer below </p>
 								</div>
 
-								<div className="row-span-3 options-questions-card glass-bg-2">
+								<div className="row-span-3 options-questions-card glass-bg">
 									<QuizOptions options={questions[currentQuestion]} onSelectOption={(score) => { handleAnswerSelect(score) }} />
 								</div>
 							</div>
