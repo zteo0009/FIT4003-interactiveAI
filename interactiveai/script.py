@@ -21,9 +21,13 @@ res.append(type)
 for doc in docs:
     temp = doc.to_dict()["score"]
     temp.append(sum(temp))
+    temp.append(doc.to_dict()["date"])
     res.append(temp)
 
-sum_per_question = [sum(i) for i in zip(*res[3:])]
+temp_for_sum = [i[:-1] for i in res]
+print(temp_for_sum)
+
+sum_per_question = [sum(i) for i in zip(*temp_for_sum[3:])]
 res.append(sum_per_question)
 
 avg_per_question = [i/(len(res) - 4) for i in sum_per_question]

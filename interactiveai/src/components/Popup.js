@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState} from 'react';
+import { useState } from 'react';
 
 const backdrop = {
     visible: { opacity: 1 },
@@ -24,7 +24,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
 
     const [btnDisabled, setBtnDisable] = useState(true);
     const canBeSubmitted = (input) => {
-        if (input){
+        if (input) {
             setBtnDisable(false);
         } else {
             setBtnDisable(true);
@@ -37,7 +37,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup" variants={popup}>
                         <div className="popup-text">
-                            <iframe className="tnc" src="https://docs.google.com/document/d/e/2PACX-1vQVCYMZ4c89khJZLY26qNGs0CnNdtRta8BIui1Vy_xG_JjFcd_1VJat0U1EQVdMaKmi-S1xDyrFSsNX/pub?embedded=true"></iframe>
+                            <iframe classname="tnc" src="https://docs.google.com/document/d/e/2PACX-1vQJ23bR-a9rLIJp1qZl8qgo4VhNmMVx5bmRUsExtC4-7EuU3_NkvdupfgpZH6ERKuZkBkbFXeyphxIs/pub?embedded=true"></iframe>
                         </div>
                         <div className="popup-buttons">
                             <div className="popup-checkbox">
