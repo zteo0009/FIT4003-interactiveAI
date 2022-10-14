@@ -81,6 +81,7 @@ const Questions = () => {
 			documents.forEach(async collectionDoc => {
 				const scenario = collectionDoc.data().Background;
 				const image = collectionDoc.data().image;
+				const scenariono = collectionDoc.data().Scenariono;
 				let subCollectionDocs = await getDocs(query(collection(db, "Scenario", collectionDoc.id, "Questions"), orderBy("Questionno")));
 				subCollectionDocs.forEach(subCollectionDoc => {
 					if (subCollectionDoc.data().shuffle) {
@@ -91,7 +92,8 @@ const Questions = () => {
 							answerOptions: shuffle(subCollectionDoc.data().AnswerOptions),
 							questionno: subCollectionDoc.data().Questionno,
 							rationale: subCollectionDoc.data().rationale,
-							principle: subCollectionDoc.data().principle
+							principle: subCollectionDoc.data().principle,
+							scenariono: scenariono
 						})
 					} else {
 						temp.push({
@@ -101,7 +103,8 @@ const Questions = () => {
 							answerOptions: subCollectionDoc.data().AnswerOptions,
 							questionno: subCollectionDoc.data().Questionno,
 							rationale: subCollectionDoc.data().rationale,
-							principle: subCollectionDoc.data().principle
+							principle: subCollectionDoc.data().principle,
+							scenariono: scenariono
 						})
 					}
 				});
