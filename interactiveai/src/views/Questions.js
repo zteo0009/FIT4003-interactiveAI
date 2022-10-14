@@ -4,7 +4,7 @@ import QuizOptions from '../components/QuizOptions'
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { db } from '../index';
-import { collection, getDocs, orderBy, query, addDoc } from "firebase/firestore";
+import { collection, getDocs, orderBy, query, doc, getDoc, setDoc, updateDoc, increment } from "firebase/firestore";
 
 let scoreList = [];
 
@@ -59,9 +59,16 @@ const Questions = () => {
 				[d.getHours(),
 				d.getMinutes(),
 				d.getSeconds()].join(':');
-		const docRef = await addDoc(collection(db, "Results"), {
+		
+		const counterDoc = doc(db, "ResultCounter", "Counter");
+		const counterDocSnap = await getDoc(counterDoc);
+		await setDoc(doc(db, "Results", "P" + (counterDocSnap.data().count + 1)), {
 			score: scoreList,
 			date: dformat
+		});
+
+		await updateDoc(counterDoc, {
+			count: increment(1)
 		});
 	}
 
