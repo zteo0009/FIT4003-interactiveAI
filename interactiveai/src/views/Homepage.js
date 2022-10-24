@@ -2,18 +2,20 @@ import React, { useState } from "react";
 import { motion } from 'framer-motion';
 import '../assets/styles.css'
 import Popup from '../components/Popup';
+import UserSelectionPopup from '../components/UserSelectionPopup';
 
 function Homepage() {
 
     const [showPopUp, setShowPopUp] = useState(false);
-
+    const [showUserPopUp, setShowUserPopUp] = useState(false);
     const routeChange = () => {
         setShowPopUp(true);
     }
 
     return (
         <>
-            <Popup showPopUp={showPopUp} setShowPopUp={setShowPopUp} />
+            <Popup showPopUp={showPopUp} setShowPopUp={setShowPopUp} setShowUserPopUp={setShowUserPopUp} />
+            <UserSelectionPopup showUserPopUp={showUserPopUp} setShowUserPopUp={setShowUserPopUp}/>
             <img className="fixed right-0" src={require('../images/top-right-sphere.png')} alt="" />
             <img className="fixed bottom-0 right-0 w-500" src={require('../images/bottom-sphere.png')} alt="" />
             <img className="fixed left-0" src={require('../images/top-blob.png')} alt="" />
@@ -36,7 +38,7 @@ function Homepage() {
                     </div>
                     <div className="empty"></div>
 
-                    {showPopUp
+                    {showPopUp || showUserPopUp
                         ? <div className="robot-hand-background">
                             <img src={require('../images/robot-arm.png')} alt="" />
                         </div>
@@ -44,7 +46,6 @@ function Homepage() {
                             <img src={require('../images/robot-arm.png')} alt="" />
                         </div>
                     }
-
 
                 </div>
 

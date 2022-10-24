@@ -20,8 +20,11 @@ const popup = {
     },
 }
 
-const Popup = ({ showPopUp, setShowPopUp }) => {
-
+const Popup = ({ showPopUp, setShowPopUp, setShowUserPopUp }) => {
+    const routeChange = () => {
+        setShowPopUp(false);
+        setShowUserPopUp(true);
+    }
     const [btnDisabled, setBtnDisable] = useState(true);
     const canBeSubmitted = (input) => {
         if (input) {
@@ -37,7 +40,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popup" variants={popup}>
                         <div className="popup-text">
-                            <iframe classname="tnc" src="https://docs.google.com/document/d/e/2PACX-1vQJ23bR-a9rLIJp1qZl8qgo4VhNmMVx5bmRUsExtC4-7EuU3_NkvdupfgpZH6ERKuZkBkbFXeyphxIs/pub?embedded=true"></iframe>
+                            <iframe className="tnc" src="https://docs.google.com/document/d/e/2PACX-1vQJ23bR-a9rLIJp1qZl8qgo4VhNmMVx5bmRUsExtC4-7EuU3_NkvdupfgpZH6ERKuZkBkbFXeyphxIs/pub?embedded=true"></iframe>
                         </div>
                         <div className="popup-buttons">
                             <div className="popup-checkbox">
@@ -51,9 +54,7 @@ const Popup = ({ showPopUp, setShowPopUp }) => {
                                 </label>
                             </div>
                             <div>
-                                <Link to="/questions">
-                                    <button id="proceedBtn" disabled={btnDisabled} onClick={() => setShowPopUp(false)}>Proceed</button>
-                                </Link>
+                                <button id="proceedBtn" disabled={btnDisabled} onClick={routeChange}>Proceed</button>
                             </div>
                         </div>
                     </motion.div>

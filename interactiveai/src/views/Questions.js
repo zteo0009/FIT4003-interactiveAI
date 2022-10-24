@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Question from '../components/Question'
 import QuizOptions from '../components/QuizOptions'
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { db } from '../index';
 import { collection, getDocs, orderBy, query, doc, getDoc, setDoc, updateDoc, increment } from "firebase/firestore";
@@ -30,7 +30,8 @@ const Questions = () => {
 	const [questions, setQuestions] = useState([]);
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const navigate = useNavigate();
-
+	const { state } = useLocation();
+	const [userSelected, setuserSelected] = useState(() => state.userSelected);
 	const handleAnswerSelect = (score) => {
 
 		scoreList.push(score);
@@ -64,7 +65,8 @@ const Questions = () => {
 		const counterDocSnap = await getDoc(counterDoc);
 		await setDoc(doc(db, "Results", "P" + (counterDocSnap.data().count + 1)), {
 			score: scoreList,
-			date: dformat
+			date: dformat,
+			userProfile: userSelected
 		});
 
 		await updateDoc(counterDoc, {

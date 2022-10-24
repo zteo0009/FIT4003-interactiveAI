@@ -570,3 +570,23 @@ iframe {
     margin-bottom: 20px;
     border: 1px solid #000000;
   }
+
+.popupUserSelect {
+    position: absolute;
+    min-width: 50%;
+    height: 50%;
+    top:20%;
+    left: 25.5%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 99999;
+}
+
+.popup-text-user-select {
+    width: 70%;
+    margin: 0 auto;
+    height: 80%;
+}
