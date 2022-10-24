@@ -574,9 +574,9 @@ iframe {
 .popupUserSelect {
     position: absolute;
     min-width: 50%;
-    height: 50%;
-    top:20%;
-    left: 25.5%;
+    height: 75%;
+    top:10%;
+    left: 22.5%;
     margin: 0 auto;
     padding: 40px 20px;
     background: white;

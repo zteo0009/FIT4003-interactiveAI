@@ -66,36 +66,36 @@ const UserSelectionPopup = ({ showUserPopUp, setShowUserPopUp }) => {
                 <motion.div className="backdrop" variants={backdrop} initial="hidden" animate="visible" exit="hidden">
                     <motion.div className="popupUserSelect" variants={popup}>
                         <div className="popup-text-user-select">
-                            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Before you take the quiz, please select what best describes you</h3>
-                            <ul className="w-90 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                <li className="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                            <h3 className="mb-4 font-semibold text-gray-900">Before you take the quiz, please select what best describes you</h3>
+                            <ul className="w-90 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200">
+                                <li className="w-full rounded-t-lg border-b border-gray-200">
                                     <div className="flex items-center pl-3">
-                                        <input id="ai_student" type="radio" value="AI_student" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-                                        <label for="ai_student" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">AI Student </label>
+                                        <input id="ai_student" type="radio" value="AI_student" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+                                        <label for="ai_student" className="py-3 ml-2 w-full text-sm font-medium text-gray-900">AI Student </label>
                                     </div>
                                 </li>
-                                <li className="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                                <li className="w-full rounded-t-lg border-b border-gray-200">
                                     <div className="flex items-center pl-3">
-                                        <input id="ai_practitioner" type="radio" value="AI_practitioner" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-                                        <label for="ai_practitioner" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">AI Practitioner</label>
+                                        <input id="ai_practitioner" type="radio" value="AI_practitioner" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+                                        <label for="ai_practitioner" className="py-3 ml-2 w-full text-sm font-medium text-gray-900">AI Practitioner</label>
                                     </div>
                                 </li>
-                                <li className="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                                <li className="w-full rounded-t-lg border-b border-gray-200">
                                     <div className="flex items-center pl-3">
-                                        <input id="ai_researcher" type="radio" value="AI_researcher" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-                                        <label for="ai_researcher" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">AI Researcher</label>
+                                        <input id="ai_researcher" type="radio" value="AI_researcher" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+                                        <label for="ai_researcher" className="py-3 ml-2 w-full text-sm font-medium text-gray-900">AI Researcher</label>
                                     </div>
                                 </li>
-                                <li className="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                                <li className="w-full rounded-t-lg border-b border-gray-200">
                                     <div className="flex items-center pl-3">
-                                        <input id="working_in_ai" type="radio" value="working_in_AI_domain" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-                                        <label for="working_in_ai" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Working in AI domain</label>
+                                        <input id="working_in_ai" type="radio" value="working_in_AI_domain" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+                                        <label for="working_in_ai" className="py-3 ml-2 w-full text-sm font-medium text-gray-900">Working in AI domain</label>
                                     </div>
                                 </li>
-                                <li className="w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">
+                                <li className="w-full rounded-t-lg border-b border-gray-200">
                                     <div className="flex items-center pl-3">
-                                        <input id="other_ai" type="radio" value="others" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"/>
-                                        <label for="other_ai" className="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">Others</label>
+                                        <input id="other_ai" type="radio" value="others" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"/>
+                                        <label for="other_ai" className="py-3 ml-2 w-full text-sm font-medium text-gray-900">Others</label>
                                     </div>
                                 </li>
                                 <div className="flex items-center">
