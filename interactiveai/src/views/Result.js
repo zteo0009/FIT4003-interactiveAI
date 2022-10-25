@@ -6,7 +6,7 @@ import ResultPopup from '../components/ResultPopup';
 import '../assets/styles.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { collection, getDocs, query, orderBy, addDoc } from "firebase/firestore";
+import { collection, getDocs, getDoc, setDoc, doc } from "firebase/firestore";
 import { db } from '../index'
 
 const Result = (props) => {
@@ -117,7 +117,9 @@ const Result = (props) => {
   }
 
   const submitEmail = async () => {
-    const docRef = await addDoc(collection(db, "Emails"), {
+    const counterDoc = doc(db, "ResultCounter", "Counter");
+		const counterDocSnap = await getDoc(counterDoc);
+    await setDoc(doc(db, "Emails", "P" + (counterDocSnap.data().count)), {
       email: email
     });
     setEmail("");
@@ -179,7 +181,7 @@ const Result = (props) => {
                   </div>
                   <div className="grid grid-cols-3">
                     <div className="col-start-2">
-                      {emailFeedbackMsg.length > 0 && <p className="text-xl md:text-xl lg:text-xl mb-8" style={{color: emailFeedbackMsg == "Invalid email!" ? "red" : "green"}}>{emailFeedbackMsg}</p>}
+                      {emailFeedbackMsg.length > 0 && <p className="text-xl md:text-xl lg:text-xl mb-8" style={{ color: emailFeedbackMsg == "Invalid email!" ? "red" : "green" }}>{emailFeedbackMsg}</p>}
                     </div>
                   </div>
                 </div>
