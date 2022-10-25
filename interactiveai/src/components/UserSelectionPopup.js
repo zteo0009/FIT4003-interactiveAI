@@ -23,27 +23,24 @@ const popup = {
 
 const UserSelectionPopup = ({ showUserPopUp, setShowUserPopUp }) => {
     const [btnDisabled, setBtnDisable] = useState(true);
+    const [radioChecked, setRadioDisable] = useState(false);
+    const [userRadioSelect, setUserRadioSelect] = useState("");
     const navigate = useNavigate();
     const canBeSubmitted = (input) => {
-        if (input) {
-            setBtnDisable(false);
-        } else {
-            setBtnDisable(true);
-        }
-    }
-
-    const handleAnswerSelect = () => {
-        setShowUserPopUp(false)
         const ai_student = document.getElementById("ai_student");
         const ai_practitioner = document.getElementById("ai_practitioner");
         const ai_researcher = document.getElementById("ai_researcher");
         const working_in_ai = document.getElementById("working_in_ai");
         const other_ai = document.getElementById("other_ai");
         const others = document.getElementById("others");
-        let user;
         const userArray = [ai_student,ai_practitioner,ai_researcher, working_in_ai,other_ai]
+        let radio = false;
+        let user;
         for(let i = 0; i<userArray.length; i++){
             if(userArray[i].checked){
+                radio = true;
+                console.log(radio)
+                setRadioDisable(true);
                 if(userArray[i].id !== "other_ai"){
                     user = userArray[i].value
                 }
@@ -52,13 +49,27 @@ const UserSelectionPopup = ({ showUserPopUp, setShowUserPopUp }) => {
                 }
             }
         }
-        console.log(user)
-		let path = '/questions';
-		navigate(path, {
-			state: {
-                userSelected: user
-			}
-			});
+        if (input && radio) {
+            setBtnDisable(false);
+            setRadioDisable(true);
+            setUserRadioSelect(user);
+        } else {
+            document.getElementById("error").innerHTML = "please select an option and start button"
+            setBtnDisable(true);
+        }
+    }
+    document.addEventListener("input",canBeSubmitted);
+    const handleAnswerSelect = () => {
+        if(radioChecked){
+            setShowUserPopUp(false)
+            console.log(radioChecked)
+            let path = '/questions';
+            navigate(path, {
+                state: {
+                    userSelected: userRadioSelect
+                }
+            });
+        }
 	}
     return (
         <AnimatePresence exitBeforeEnter>
@@ -104,6 +115,7 @@ const UserSelectionPopup = ({ showUserPopUp, setShowUserPopUp }) => {
                             </ul>
 
                         </div>
+                        <h4 className="mb-4 font-semibold text-red-900" id="error"></h4>
                         <div className="popup-buttons">
                             <div className="popup-checkbox">
                                 <label>
